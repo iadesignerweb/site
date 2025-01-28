@@ -1,199 +1,263 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - iaDesigner</title>
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: linear-gradient(180deg, #000000, #1a1a1a);
-            color: #fff;
-        }
-        .header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px 20px;
-            background: #000;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.7);
-        }
-        .header a {
-            color: #00ff99;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        .header a:hover {
-            text-decoration: underline;
-        }
-        .header .menu {
-            display: flex;
-            gap: 15px;
-        }
-        .container {
-            max-width: 400px;
-            margin: 50px auto;
-            background: rgba(0, 0, 0, 0.9);
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
-        }
-        h1 {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-        label {
-            display: block;
-            margin-top: 15px;
-            font-weight: bold;
-        }
-        input[type="text"], input[type="password"] {
-            width: 100%;
-            padding: 10px;
-            margin-top: 5px;
-            border: none;
-            border-radius: 5px;
-            font-size: 16px;
-        }
-        button {
-            width: 100%;
-            padding: 10px;
-            border: none;
-            border-radius: 5px;
-            font-size: 16px;
-            margin-top: 20px;
-            color: #fff;
-            background: linear-gradient(90deg, #00b36b, #00804d);
-            cursor: pointer;
-            text-transform: uppercase;
-        }
-        button:hover {
-            background: linear-gradient(90deg, #00e696, #00b36b);
-        }
-        #gallery {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 20px;
-            justify-content: center;
-        }
-        .image-item {
-            width: 100%;
-            max-width: 300px;
-            aspect-ratio: 16 / 9;
-            position: relative;
-            border-radius: 10px;
-            overflow: hidden;
-        }
-        .image-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        .watermark {
-            position: absolute;
-            bottom: 10px;
-            right: 10px;
-            font-size: 14px;
-            background: rgba(0, 0, 0, 0.5);
-            color: white;
-            padding: 2px 6px;
-            border-radius: 5px;
-        }
-        .footer {
-            text-align: center;
-            margin-top: 50px;
-            color: rgba(255, 255, 255, 0.6);
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Plataforma de Bibliotecas Inteligentes</title>
+
+  <!-- Link para o Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+  <style>
+    /* Reset de estilo */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Corpo da página */
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #000;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    /* Cabeçalho com a imagem */
+    header {
+      width: 100%;
+      max-width: 1200px;
+      margin-bottom: 40px;
+    }
+
+    header img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+
+    p {
+      font-size: 1.2rem;
+      color: #b0b0b0;
+      margin-bottom: 30px;
+      line-height: 1.6;
+    }
+
+    /* Container das bibliotecas usando Grid */
+    .libraries-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Usando grid responsivo */
+      gap: 20px;
+      width: 100%;
+      max-width: 1200px;
+    }
+
+    /* Cartão de biblioteca com proporção 2:3 */
+    .library-card {
+      background-color: #1e1e1e;
+      border-radius: 10px;
+      padding: 20px;
+      width: 100%;
+      height: 100%;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      text-align: left;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      aspect-ratio: 2 / 3; /* Garantir proporção 2:3 */
+    }
+
+    .library-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+    }
+
+    .library-card h2 {
+      font-size: 1.6rem;
+      color: #4CAF50;
+      margin-bottom: 10px;
+    }
+
+    .library-card p {
+      font-size: 1rem;
+      color: #ccc;
+    }
+
+    .library-card .description {
+      font-size: 0.9rem;
+      color: #bbb;
+      margin-top: 10px;
+      margin-bottom: 20px;
+    }
+
+    /* Biblioteca com borda colorida */
+    .library-card:nth-child(odd) {
+      border-left: 5px solid #ff0077;
+    }
+
+    .library-card:nth-child(even) {
+      border-left: 5px solid #ff9900;
+    }
+
+    /* Rodapé */
+    footer {
+      margin-top: 40px;
+      padding: 20px;
+      background-color: #1e1e1e;
+      width: 100%;
+      text-align: center;
+      color: #fff;
+    }
+
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 10px;
+    }
+
+    .social-icons a {
+      font-size: 2.5rem;
+      text-decoration: none;
+    }
+
+    .social-icons a:hover {
+      color: #4CAF50;
+    }
+
+    /* Ícones coloridos */
+    .social-icons a:nth-child(1) {
+      color: #1877F2; /* Facebook */
+    }
+
+    .social-icons a:nth-child(2) {
+      color: #E4405F; /* Instagram */
+    }
+
+    .social-icons a:nth-child(3) {
+      color: #1DA1F2; /* Twitter */
+    }
+
+    .social-icons a:nth-child(4) {
+      color: #FF0000; /* YouTube */
+    }
+
+    .social-icons a:nth-child(5) {
+      color: #25D366; /* WhatsApp */
+    }
+
+    .copyright {
+      font-size: 0.8rem;
+      color: #bbb;
+      margin-top: 20px;
+    }
+
+    /* Responsividade */
+    @media (max-width: 768px) {
+      .library-card {
+        width: 100%; /* Largura total para telas menores */
+        height: auto; /* Ajuste para não forçar o tamanho */
+      }
+
+      h1 {
+        font-size: 2.5rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .library-card {
+        width: 100%;
+        height: auto;
+      }
+
+      h1 {
+        font-size: 2rem;
+      }
+
+      .social-icons a {
+        font-size: 1.5rem;
+      }
+    }
+
+  </style>
 </head>
 <body>
-    <div class="header">
-        <div class="menu">
-            <a href="#" onclick="alert('Insira aqui o link dos Termos de Uso')">PRO</a>
-            <a href="https://pay.hotmart.com/T96807244D?bid=1732740273705" target="_blank">Vendas</a>
-        </div>
-        <div class="support">
-            <a href="https://wa.me/5587999786261?text=Gostaria%20de%20ser%20Pro" target="_blank">囧 Suporte</a>
-        </div>
-    </div>
-    
-    <div class="container" id="login-container">
-        <h1>Login - iaDesigner</h1>
-        <form id="loginForm">
-            <label for="id">ID</label>
-            <input type="text" id="id" name="id" placeholder="Digite seu ID" required>
-            <label for="password">Senha</label>
-            <input type="password" id="password" name="password" placeholder="Digite sua senha" required>
-            <button type="submit">Entrar</button>
-        </form>
+
+  <!-- Cabeçalho com imagem -->
+  <header>
+    <!-- Coloque o link da imagem aqui -->
+    <img src="https://raw.githubusercontent.com/iadesignerweb/EAD/refs/heads/main/Banner%20de%20site%2C%20Pl%C3%ADnio%20Fabr%C3%ADcio%2C%20Capa%20de%20YouTube.png" alt="Plataforma de Bibliotecas Inteligentes">
+  </header>
+
+  <p>Explore as bibliotecas de IA mais modernas e poderosas do mercado. Cada uma delas oferece soluções inovadoras para transformar seu negócio com tecnologia de ponta.</p>
+
+  <!-- Container das bibliotecas -->
+  <div class="libraries-container">
+
+    <!-- Biblioteca 1 -->
+    <div class="library-card">
+      <h2>TensorFlow</h2>
+      <p><strong>Descrição:</strong> Uma biblioteca de aprendizado de máquina open-source, desenvolvida pelo Google, amplamente usada para redes neurais profundas e modelos de aprendizado profundo.</p>
+      <p class="description">Ideal para treinamentos em grande escala e modelos de inteligência artificial para diversas plataformas.</p>
     </div>
 
-    <div class="container" id="generator-container" style="display:none;">
-        <h1>Gerador de Imagens</h1>
-        <div>
-            <input type="text" id="search-term" placeholder="Digite um termo de pesquisa">
-            <button onclick="fetchImages()">Buscar Imagens</button>
-        </div>
-        <div id="gallery"></div>
+    <!-- Biblioteca 2 -->
+    <div class="library-card">
+      <h2>PyTorch</h2>
+      <p><strong>Descrição:</strong> Uma biblioteca de aprendizado de máquina open-source desenvolvida pela Facebook AI Research. PyTorch oferece flexibilidade e velocidade, permitindo pesquisa em IA mais ágil.</p>
+      <p class="description">Recomendada para projetos de pesquisa e desenvolvedores que buscam eficiência e inovação.</p>
     </div>
 
-    <div class="footer">
-        @Copyright 2024 - iaDesigner
+    <!-- Biblioteca 3 -->
+    <div class="library-card">
+      <h2>Keras</h2>
+      <p><strong>Descrição:</strong> Uma biblioteca de alto nível que funciona sobre o TensorFlow. Keras facilita a criação e o treinamento de redes neurais, com foco em usabilidade e simplicidade.</p>
+      <p class="description">Ideal para iniciantes em IA, pois oferece uma interface amigável e intuitiva.</p>
     </div>
 
-    <script>
-        const API_KEY = "28917727-a0ff170bd24e2129bdad0726f";
-        const loginContainer = document.getElementById("login-container");
-        const generatorContainer = document.getElementById("generator-container");
-        const gallery = document.getElementById("gallery");
+    <!-- Biblioteca 4 -->
+    <div class="library-card">
+      <h2>Scikit-Learn</h2>
+      <p><strong>Descrição:</strong> Uma das bibliotecas mais populares para aprendizado supervisionado e não supervisionado, com ferramentas para análise de dados e aprendizado de máquina simples.</p>
+      <p class="description">Excelente para análise estatística e mineração de dados em projetos de IA.</p>
+    </div>
 
-        document.getElementById('loginForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const id = document.getElementById("id").value;
-            const password = document.getElementById("password").value;
+    <!-- Biblioteca 5 -->
+    <div class="library-card">
+      <h2>OpenCV</h2>
+      <p><strong>Descrição:</strong> Biblioteca de código aberto para visão computacional. OpenCV permite a construção de sistemas de visão com IA, como reconhecimento facial e detecção de objetos.</p>
+      <p class="description">Muito usada para processamento de imagens e vídeos em tempo real.</p>
+    </div>
 
-            if (id === "admin" && password === "1234") {
-                loginContainer.style.display = "none";
-                generatorContainer.style.display = "block";
-            } else {
-                alert("ID ou senha incorretos!");
-            }
-        });
+    <!-- Biblioteca 6 -->
+    <div class="library-card">
+      <h2>Fast.ai</h2>
+      <p><strong>Descrição:</strong> Uma biblioteca projetada para tornar o aprendizado de IA mais acessível, com foco em deep learning e aceleração do processo de treinamento.</p>
+      <p class="description">Ideal para desenvolvedores e pesquisadores que buscam resultados rápidos em deep learning.</p>
+    </div>
 
-        function fetchImages() {
-            const searchTerm = document.getElementById("search-term").value;
-            if (!searchTerm) {
-                alert("Digite um termo de pesquisa!");
-                return;
-            }
+  </div>
 
-            gallery.innerHTML = "";
+  <!-- Rodapé com ícones de redes sociais -->
+  <footer>
+    <div class="social-icons">
+      <a href="https://facebook.com/pliniofabricio.72" target="_blank"><i class="fab fa-facebook"></i></a> <!-- Facebook -->
+      <a href="https://instagram.com/pliniofabricio_" target="_blank"><i class="fab fa-instagram"></i></a> <!-- Instagram -->
+      <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a> <!-- Twitter -->
+      <a href="https://youtube.com/@pliniofabricio_" target="_blank"><i class="fab fa-youtube"></i></a> <!-- YouTube -->
+      <a href="https://wa.me/5587999786261" target="_blank"><i class="fab fa-whatsapp"></i></a> <!-- WhatsApp -->
+    </div>
+    <p class="copyright">© Copyright 2025 - Plínio Designer</p>
+  </footer>
 
-            fetch(`https://pixabay.com/api/?key=${API_KEY}&q=${encodeURIComponent(searchTerm)}&image_type=photo&per_page=12`)
-                .then(response => response.json())
-                .then(data => {
-                    if (data.hits.length === 0) {
-                        alert("Nenhuma imagem encontrada!");
-                        return;
-                    }
-
-                    data.hits.forEach(image => {
-                        const imgElement = document.createElement("div");
-                        imgElement.classList.add("image-item");
-                        imgElement.innerHTML = `
-                            <img src="${image.webformatURL}" alt="${image.tags}">
-                            <div class="watermark">iaDesigner</div>
-                        `;
-                        gallery.appendChild(imgElement);
-                    });
-                })
-                .catch(error => {
-                    console.error("Erro ao buscar imagens:", error);
-                    alert("Erro ao buscar imagens. Tente novamente.");
-                });
-        }
-    </script>
 </body>
 </html>
