@@ -1,73 +1,28 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Plínio Studio</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Minha Vitrine</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-  <!-- header e menu -->
   <header>
-    <h1>Plínio Studio</h1>
-    <button id="menu-toggle" aria-label="Abrir/Fechar menu">&#9776;</button>
-    <nav id="menu" class="hidden">
-      <ul>
-        <li><a href="#quem-somos">Quem Somos</a></li>
-        <li><a href="#galeria">Galeria</a></li>
-        <li><a href="#contato">Contato</a></li>
-      </ul>
-    </nav>
+    <h1>Minha Vitrine</h1>
+    <input type="text" id="busca" placeholder="Buscar produtos...">
+    <select id="categoriaFiltro">
+      <option value="">Todas as Categorias</option>
+    </select>
   </header>
 
-  <!-- banner -->
-  <section class="banner">
-    <div class="banner-conteudo">
-      <h2>Transforme suas ideias em imagens que emocionam</h2>
-      <p>Registros únicos, qualidade profissional e estilo autoral.</p>
-      <a href="#quem-somos" class="btn-banner">Saiba Mais</a>
-    </div>
-  </section>
-
   <main>
-    <!-- quem somos -->
-    <section id="quem-somos">
-      <h2>Quem Somos</h2>
-      <p>O Plínio Studio é especializado em arte visual e imagens autorais que emocionam. Com um olhar criativo e apurado, oferecemos registros únicos com qualidade profissional. Nossa missão é transmitir histórias, sensações e significado através de cada imagem vendida.</p>
-    </section>
-
-    <!-- galeria -->
-    <section id="galeria">
-      <h2>Galeria</h2>
-      <div class="galeria">
-        <div class="imagem">
-          <img src="imagens/foto1.jpg" alt="Foto 1">
-          <p>Conexão com o olhar</p>
-        </div>
-        <div class="imagem">
-          <img src="imagens/foto2.jpg" alt="Foto 2">
-          <p>Momento eterno</p>
-        </div>
-        <div class="imagem">
-          <img src="imagens/foto3.jpg" alt="Foto 3">
-          <p>Luz e expressão</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- contato -->
-    <section id="contato">
-      <h2>Contato</h2>
-      <p>Telefone/WhatsApp: <a href="https://wa.me/5587999786261" target="_blank">(87) 99978-6261</a></p>
-      <p>Instagram: <a href="https://instagram.com/pliniofabricio_" target="_blank">@pliniofabricio_</a></p>
-    </section>
+    <div id="produtos" class="grid"></div>
+    <aside id="carrinho">
+      <h2>Carrinho</h2>
+      <ul id="lista-carrinho"></ul>
+      <p>Total: R$ <span id="total">0,00</span></p>
+    </aside>
   </main>
-
-  <!-- rodapé -->
-  <footer>
-    <p>© Copyright 2025 – Plínio Fabrício</p>
-  </footer>
 
   <script src="script.js"></script>
 </body>
