@@ -1,263 +1,46 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Plataforma de Bibliotecas Inteligentes</title>
-
-  <!-- Link para o Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-
-  <style>
-    /* Reset de estilo */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    /* Corpo da página */
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #000;
-      color: #fff;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      min-height: 100vh;
-      padding: 20px;
-    }
-
-    /* Cabeçalho com a imagem */
-    header {
-      width: 100%;
-      max-width: 1200px;
-      margin-bottom: 40px;
-    }
-
-    header img {
-      width: 100%;
-      height: auto;
-      border-radius: 10px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-    }
-
-    p {
-      font-size: 1.2rem;
-      color: #b0b0b0;
-      margin-bottom: 30px;
-      line-height: 1.6;
-    }
-
-    /* Container das bibliotecas usando Grid */
-    .libraries-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Usando grid responsivo */
-      gap: 20px;
-      width: 100%;
-      max-width: 1200px;
-    }
-
-    /* Cartão de biblioteca com proporção 2:3 */
-    .library-card {
-      background-color: #1e1e1e;
-      border-radius: 10px;
-      padding: 20px;
-      width: 100%;
-      height: 100%;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-      text-align: left;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      aspect-ratio: 2 / 3; /* Garantir proporção 2:3 */
-    }
-
-    .library-card:hover {
-      transform: scale(1.05);
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
-    }
-
-    .library-card h2 {
-      font-size: 1.6rem;
-      color: #4CAF50;
-      margin-bottom: 10px;
-    }
-
-    .library-card p {
-      font-size: 1rem;
-      color: #ccc;
-    }
-
-    .library-card .description {
-      font-size: 0.9rem;
-      color: #bbb;
-      margin-top: 10px;
-      margin-bottom: 20px;
-    }
-
-    /* Biblioteca com borda colorida */
-    .library-card:nth-child(odd) {
-      border-left: 5px solid #ff0077;
-    }
-
-    .library-card:nth-child(even) {
-      border-left: 5px solid #ff9900;
-    }
-
-    /* Rodapé */
-    footer {
-      margin-top: 40px;
-      padding: 20px;
-      background-color: #1e1e1e;
-      width: 100%;
-      text-align: center;
-      color: #fff;
-    }
-
-    .social-icons {
-      display: flex;
-      justify-content: center;
-      gap: 30px;
-      margin-top: 10px;
-    }
-
-    .social-icons a {
-      font-size: 2.5rem;
-      text-decoration: none;
-    }
-
-    .social-icons a:hover {
-      color: #4CAF50;
-    }
-
-    /* Ícones coloridos */
-    .social-icons a:nth-child(1) {
-      color: #1877F2; /* Facebook */
-    }
-
-    .social-icons a:nth-child(2) {
-      color: #E4405F; /* Instagram */
-    }
-
-    .social-icons a:nth-child(3) {
-      color: #1DA1F2; /* Twitter */
-    }
-
-    .social-icons a:nth-child(4) {
-      color: #FF0000; /* YouTube */
-    }
-
-    .social-icons a:nth-child(5) {
-      color: #25D366; /* WhatsApp */
-    }
-
-    .copyright {
-      font-size: 0.8rem;
-      color: #bbb;
-      margin-top: 20px;
-    }
-
-    /* Responsividade */
-    @media (max-width: 768px) {
-      .library-card {
-        width: 100%; /* Largura total para telas menores */
-        height: auto; /* Ajuste para não forçar o tamanho */
-      }
-
-      h1 {
-        font-size: 2.5rem;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .library-card {
-        width: 100%;
-        height: auto;
-      }
-
-      h1 {
-        font-size: 2rem;
-      }
-
-      .social-icons a {
-        font-size: 1.5rem;
-      }
-    }
-
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Plínio Studio | Loja de Imagens</title>
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-  <!-- Cabeçalho com imagem -->
-  <header>
-    <!-- Coloque o link da imagem aqui -->
-    <img src="https://raw.githubusercontent.com/iadesignerweb/EAD/refs/heads/main/Banner%20de%20site%2C%20Pl%C3%ADnio%20Fabr%C3%ADcio%2C%20Capa%20de%20YouTube.png" alt="Plataforma de Bibliotecas Inteligentes">
-  </header>
-
-  <p>Explore as bibliotecas de IA mais modernas e poderosas do mercado. Cada uma delas oferece soluções inovadoras para transformar seu negócio com tecnologia de ponta.</p>
-
-  <!-- Container das bibliotecas -->
-  <div class="libraries-container">
-
-    <!-- Biblioteca 1 -->
-    <div class="library-card">
-      <h2>TensorFlow</h2>
-      <p><strong>Descrição:</strong> Uma biblioteca de aprendizado de máquina open-source, desenvolvida pelo Google, amplamente usada para redes neurais profundas e modelos de aprendizado profundo.</p>
-      <p class="description">Ideal para treinamentos em grande escala e modelos de inteligência artificial para diversas plataformas.</p>
-    </div>
-
-    <!-- Biblioteca 2 -->
-    <div class="library-card">
-      <h2>PyTorch</h2>
-      <p><strong>Descrição:</strong> Uma biblioteca de aprendizado de máquina open-source desenvolvida pela Facebook AI Research. PyTorch oferece flexibilidade e velocidade, permitindo pesquisa em IA mais ágil.</p>
-      <p class="description">Recomendada para projetos de pesquisa e desenvolvedores que buscam eficiência e inovação.</p>
-    </div>
-
-    <!-- Biblioteca 3 -->
-    <div class="library-card">
-      <h2>Keras</h2>
-      <p><strong>Descrição:</strong> Uma biblioteca de alto nível que funciona sobre o TensorFlow. Keras facilita a criação e o treinamento de redes neurais, com foco em usabilidade e simplicidade.</p>
-      <p class="description">Ideal para iniciantes em IA, pois oferece uma interface amigável e intuitiva.</p>
-    </div>
-
-    <!-- Biblioteca 4 -->
-    <div class="library-card">
-      <h2>Scikit-Learn</h2>
-      <p><strong>Descrição:</strong> Uma das bibliotecas mais populares para aprendizado supervisionado e não supervisionado, com ferramentas para análise de dados e aprendizado de máquina simples.</p>
-      <p class="description">Excelente para análise estatística e mineração de dados em projetos de IA.</p>
-    </div>
-
-    <!-- Biblioteca 5 -->
-    <div class="library-card">
-      <h2>OpenCV</h2>
-      <p><strong>Descrição:</strong> Biblioteca de código aberto para visão computacional. OpenCV permite a construção de sistemas de visão com IA, como reconhecimento facial e detecção de objetos.</p>
-      <p class="description">Muito usada para processamento de imagens e vídeos em tempo real.</p>
-    </div>
-
-    <!-- Biblioteca 6 -->
-    <div class="library-card">
-      <h2>Fast.ai</h2>
-      <p><strong>Descrição:</strong> Uma biblioteca projetada para tornar o aprendizado de IA mais acessível, com foco em deep learning e aceleração do processo de treinamento.</p>
-      <p class="description">Ideal para desenvolvedores e pesquisadores que buscam resultados rápidos em deep learning.</p>
-    </div>
-
+  <div id="printAlert">
+    Não é possível tirar print da tela! Para adquirir qualquer imagem ou remover marca d'água clique em "Comprar"
   </div>
 
-  <!-- Rodapé com ícones de redes sociais -->
+  <header>
+    <h1>Plínio Studio</h1>
+    <button class="menu-btn" onclick="toggleMenu()">☰</button>
+    <nav id="navMenu">
+      <a href="#quem">Quem Somos</a>
+      <a href="#contato">Contato</a>
+      <a href="https://wa.me/559997862661" target="_blank">Criador de imagens</a>
+    </nav>
+  </header>
+
+  <div class="grid" id="imageGrid"></div>
+
+  <section id="quem">
+    <h2>Quem Somos</h2>
+    <p>
+      O Plínio Studio é especializado em arte visual e imagens autorais que emocionam. Com um olhar criativo e apurado, oferecemos registros únicos com qualidade profissional. Nossa missão é transmitir histórias, sensações e significado através de cada imagem vendida.
+    </p>
+  </section>
+
+  <section id="contato">
+    <h2>Contato</h2>
+    <p>Telefone/WhatsApp: <a href="https://wa.me/5587999786261" target="_blank" style="color: #0f0;">(87) 99978-6261</a></p>
+    <p>Instagram: <a href="https://instagram.com/pliniofabricio_" target="_blank" style="color: #0f0;">@pliniofabricio_</a></p>
+  </section>
+
   <footer>
-    <div class="social-icons">
-      <a href="https://facebook.com/pliniofabricio.72" target="_blank"><i class="fab fa-facebook"></i></a> <!-- Facebook -->
-      <a href="https://instagram.com/pliniofabricio_" target="_blank"><i class="fab fa-instagram"></i></a> <!-- Instagram -->
-      <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a> <!-- Twitter -->
-      <a href="https://youtube.com/@pliniofabricio_" target="_blank"><i class="fab fa-youtube"></i></a> <!-- YouTube -->
-      <a href="https://wa.me/5587999786261" target="_blank"><i class="fab fa-whatsapp"></i></a> <!-- WhatsApp -->
-    </div>
-    <p class="copyright">© Copyright 2025 - Plínio Designer</p>
+    &copy; Copyright 2025 – Plínio Fabrício
   </footer>
 
+  <script src="js/script.js"></script>
 </body>
 </html>
