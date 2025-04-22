@@ -3,34 +3,41 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Gerador de QR Code</title>
+  <title>Plínio Studio</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+
+  <!-- header e menu -->
   <header>
-    <h1>Gerador de QR Code</h1>
+    <h1>Plínio Studio</h1>
+    <button id="menu-toggle" aria-label="Abrir/Fechar menu">&#9776;</button>
+    <nav id="menu" class="hidden">
+      <ul>
+        <li><a href="#quem-somos">Quem Somos</a></li>
+        <li><a href="#galeria">Galeria</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+    </nav>
   </header>
+
+  <!-- banner -->
+  <section class="banner">
+    <div class="banner-conteudo">
+      <h2>Transforme suas ideias em imagens que emocionam</h2>
+      <p>Registros únicos, qualidade profissional e estilo autoral.</p>
+      <a href="#quem-somos" class="btn-banner">Saiba Mais</a>
+    </div>
+  </section>
+
   <main>
-    <section class="qr-generator">
-      <input type="text" id="url" placeholder="Insira o link aqui" />
-      <button onclick="gerarQRCode()">Gerar QR Code</button>
-      <div id="qrcode"></div>
+    <!-- quem somos -->
+    <section id="quem-somos">
+      <h2>Quem Somos</h2>
+      <p>O Plínio Studio é especializado em arte visual e imagens autorais que emocionam. Com um olhar criativo e apurado, oferecemos registros únicos com qualidade profissional. Nossa missão é transmitir histórias, sensações e significado através de cada imagem vendida.</p>
     </section>
 
-    <section class="planilha">
-      <h2>Links Gerados</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>Link</th>
-            <th>Data</th>
-            <th>QR Code</th>
-          </tr>
-        </thead>
-        <tbody id="historico"></tbody>
-      </table>
-    </section>
-
+    <!-- galeria -->
     <section id="galeria">
       <h2>Galeria</h2>
       <div class="galeria">
@@ -48,10 +55,20 @@
         </div>
       </div>
     </section>
+
+    <!-- contato -->
+    <section id="contato">
+      <h2>Contato</h2>
+      <p>Telefone/WhatsApp: <a href="https://wa.me/5587999786261" target="_blank">(87) 99978-6261</a></p>
+      <p>Instagram: <a href="https://instagram.com/pliniofabricio_" target="_blank">@pliniofabricio_</a></p>
+    </section>
   </main>
+
+  <!-- rodapé -->
   <footer>
-    <p>@Copyright 2025 • Plínio Fabrício</p>
+    <p>© Copyright 2025 – Plínio Fabrício</p>
   </footer>
+
   <script src="script.js"></script>
 </body>
 </html>
