@@ -1,29 +1,45 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Minha Vitrine</title>
-  <link rel="stylesheet" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Loja Segura</title>
+  <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+<body oncontextmenu="return false">
+
   <header>
-    <h1>Minha Vitrine</h1>
-    <input type="text" id="busca" placeholder="Buscar produtos...">
-    <select id="categoriaFiltro">
-      <option value="">Todas as Categorias</option>
-    </select>
+    <nav>
+      <a href="#quem-somos">Quem Somos</a>
+      <a href="#contato">Contato</a>
+    </nav>
+    <div class="carrinho">🛒</div>
   </header>
 
-  <main>
-    <div id="produtos" class="grid"></div>
-    <aside id="carrinho">
-      <h2>Carrinho</h2>
-      <ul id="lista-carrinho"></ul>
-      <p>Total: R$ <span id="total">0,00</span></p>
-    </aside>
-  </main>
+  <section id="produtos">
+    <h2>Produto em Destaque</h2>
+    <img class="imagem-produto" src="imagens/produto1.jpg" alt="Produto Exemplo">
+    <br><br>
+    <button class="btn-pagamento" onclick="alert('Simulação de pagamento')">Efetuar Pagamento</button>
+  </section>
 
-  <script src="script.js"></script>
+  <section id="quem-somos">
+    <h2>Quem Somos</h2>
+    <p>Somos uma loja dedicada à qualidade e segurança dos seus produtos digitais.</p>
+  </section>
+
+  <section id="contato">
+    <i>📞</i>
+    <div>
+      <h3>Fale Conosco</h3>
+      <p>WhatsApp: (00) 00000-0000</p>
+    </div>
+  </section>
+
+  <footer>
+    © 2025 • Loja Segura - Todos os direitos reservados.
+  </footer>
+
+  <script src="js/script.js"></script>
 </body>
 </html>
