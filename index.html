@@ -4,7 +4,91 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Loja Segura</title>
-  <link rel="stylesheet" href="css/style.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #111;
+      color: #eee;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #222;
+      padding: 10px 20px;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+    }
+
+    nav a {
+      color: #eee;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+
+    nav a:hover {
+      color: #00ffcc;
+    }
+
+    .carrinho {
+      position: relative;
+      color: #fff;
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    .carrinho::after {
+      content: "2";
+      position: absolute;
+      top: -8px;
+      right: -8px;
+      background: red;
+      color: white;
+      border-radius: 50%;
+      padding: 2px 6px;
+      font-size: 12px;
+    }
+
+    .imagem-produto {
+      width: 300px;
+      user-drag: none;
+      user-select: none;
+      -webkit-user-drag: none;
+      pointer-events: none;
+    }
+
+    section {
+      padding: 40px 20px;
+    }
+
+    #contato {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    #contato i {
+      font-size: 24px;
+      color: #0f0;
+    }
+
+    .btn-pagamento {
+      padding: 10px 20px;
+      background: #00cc66;
+      border: none;
+      color: #fff;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    .btn-pagamento:hover {
+      background: #00aa55;
+    }
+  </style>
 </head>
 <body oncontextmenu="return false">
 
@@ -18,7 +102,7 @@
 
   <section id="produtos">
     <h2>Produto em Destaque</h2>
-    <img class="imagem-produto" src="imagens/produto1.jpg" alt="Produto Exemplo">
+    <img class="imagem-produto" src="https://via.placeholder.com/300" alt="Produto Exemplo">
     <br><br>
     <button class="btn-pagamento" onclick="alert('Simulação de pagamento')">Efetuar Pagamento</button>
   </section>
@@ -36,10 +120,27 @@
     </div>
   </section>
 
-  <footer>
+  <footer style="text-align:center; padding:20px; background:#000;">
     © 2025 • Loja Segura - Todos os direitos reservados.
   </footer>
 
-  <script src="js/script.js"></script>
+  <script>
+    // Bloqueio parcial de PrintScreen
+    document.addEventListener("keyup", function(e) {
+      if (e.key === "PrintScreen") {
+        navigator.clipboard.writeText("");
+        alert("Captura de tela bloqueada por segurança!");
+      }
+    });
+
+    // Bloqueio de impressão (Ctrl + P)
+    document.addEventListener("keydown", function(e) {
+      if (e.ctrlKey && e.key === "p") {
+        e.preventDefault();
+        alert("Função de impressão desativada.");
+      }
+    });
+  </script>
+
 </body>
 </html>
