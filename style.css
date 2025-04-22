@@ -1,140 +1,97 @@
-/* reset básico */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-/* tipografia e cores principais */
 body {
   font-family: Arial, sans-serif;
-  background-color: #111;
-  color: #eee;
-  line-height: 1.6;
+  background: #111;
+  color: #fff;
+  margin: 0;
+  padding: 0;
 }
 
-/* HEADER e MENU */
 header {
-  background-color: #000;
-  padding: 1rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  text-align: center;
+  padding: 20px;
+  background: #222;
 }
+
 header h1 {
-  color: #fff;
-  font-size: 1.5rem;
+  margin-bottom: 10px;
 }
-#menu-toggle {
-  background: none;
+
+input, select {
+  padding: 10px;
+  border-radius: 5px;
+  margin: 5px;
   border: none;
-  color: #fff;
-  font-size: 1.8rem;
-  cursor: pointer;
-}
-nav.hidden {
-  display: none;
-}
-nav ul {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  background-color: #000;
-  position: absolute;
-  top: 60px;
-  right: 1rem;
-  border-radius: 8px;
-  overflow: hidden;
-}
-nav ul li a {
-  display: block;
-  padding: 0.75rem 1.5rem;
-  color: #0f0;
-  text-decoration: none;
-}
-nav ul li a:hover {
-  background-color: #111;
+  outline: none;
+  font-size: 16px;
 }
 
-/* BANNER */
-.banner {
-  background: linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
-              url('imagens/imagem13.jpg') no-repeat center center;
-  background-size: cover;
-  padding: 4rem 1rem;
-  text-align: center;
-  margin: 1rem;
-  border-radius: 12px;
-}
-.banner h2 {
-  color: #fff;
-  font-size: 2rem;
-  margin-bottom: 1rem;
-}
-.banner p {
-  color: #ddd;
-  font-size: 1.1rem;
-  margin-bottom: 2rem;
-}
-.btn-banner {
-  display: inline-block;
-  padding: 0.75rem 2rem;
-  background-color: #6c63ff;
-  color: #fff;
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: bold;
-}
-.btn-banner:hover {
-  background-color: #574fcf;
-}
-
-/* MAIN SECTIONS */
 main {
-  padding: 1rem;
-}
-section {
-  margin-bottom: 2rem;
-}
-section h2 {
-  font-size: 1.8rem;
-  color: lime;
-  margin-bottom: 1rem;
-}
-section p {
-  color: #ccc;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 20px;
+  gap: 20px;
 }
 
-/* GALERIA */
-.galeria {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 1rem;
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  flex: 1;
+  justify-content: center;
 }
-.imagem {
-  background-color: #222;
-  border-radius: 8px;
-  overflow: hidden;
+
+.card {
+  background: #222;
+  padding: 15px;
+  border-radius: 10px;
+  width: 220px;
   text-align: center;
-  padding: 0.5rem;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
 }
-.imagem img {
-  width: 100%;
-  height: auto;
-  display: block;
+
+.card img {
+  max-width: 100%;
   border-radius: 6px;
 }
-.imagem p {
-  color: #ccc;
-  margin-top: 0.5rem;
-  font-size: 0.9rem;
+
+.card h2 {
+  margin: 10px 0;
+  font-size: 18px;
 }
 
-/* RODAPÉ */
-footer {
-  text-align: center;
-  padding: 1rem;
-  background-color: #000;
-  color: #888;
-  font-size: 0.9rem;
+.card p {
+  font-size: 16px;
+}
+
+.card button {
+  margin-top: 8px;
+  background: #0f0;
+  color: #000;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+aside#carrinho {
+  background: #1a1a1a;
+  border-left: 2px solid #333;
+  padding: 20px;
+  max-width: 300px;
+  width: 100%;
+}
+
+aside h2 {
+  margin-bottom: 15px;
+}
+
+aside ul {
+  list-style: none;
+  padding: 0;
+}
+
+aside li {
+  margin-bottom: 10px;
+  font-size: 16px;
 }
