@@ -3,44 +3,55 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Plínio Studio | Loja de Imagens</title>
+  <title>Gerador de QR Code</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-
-  <div id="printAlert">
-    Não é possível tirar print da tela! Para adquirir qualquer imagem ou remover marca d'água clique em "Comprar"
-  </div>
-
   <header>
-    <h1>Plínio Studio</h1>
-    <button class="menu-btn" onclick="toggleMenu()">☰</button>
-    <nav id="navMenu">
-      <a href="#quem">Quem Somos</a>
-      <a href="#contato">Contato</a>
-      <a href="https://wa.me/559997862661" target="_blank">Criador de imagens</a>
-    </nav>
+    <h1>Gerador de QR Code</h1>
   </header>
+  <main>
+    <section class="qr-generator">
+      <input type="text" id="url" placeholder="Insira o link aqui" />
+      <button onclick="gerarQRCode()">Gerar QR Code</button>
+      <div id="qrcode"></div>
+    </section>
 
-  <div class="grid" id="imageGrid"></div>
+    <section class="planilha">
+      <h2>Links Gerados</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Link</th>
+            <th>Data</th>
+            <th>QR Code</th>
+          </tr>
+        </thead>
+        <tbody id="historico"></tbody>
+      </table>
+    </section>
 
-  <section id="quem">
-    <h2>Quem Somos</h2>
-    <p>
-      O Plínio Studio é especializado em arte visual e imagens autorais que emocionam. Com um olhar criativo e apurado, oferecemos registros únicos com qualidade profissional. Nossa missão é transmitir histórias, sensações e significado através de cada imagem vendida.
-    </p>
-  </section>
-
-  <section id="contato">
-    <h2>Contato</h2>
-    <p>Telefone/WhatsApp: <a href="https://wa.me/5587999786261" target="_blank" style="color: #0f0;">(87) 99978-6261</a></p>
-    <p>Instagram: <a href="https://instagram.com/pliniofabricio_" target="_blank" style="color: #0f0;">@pliniofabricio_</a></p>
-  </section>
-
+    <section id="galeria">
+      <h2>Galeria</h2>
+      <div class="galeria">
+        <div class="imagem">
+          <img src="imagens/foto1.jpg" alt="Foto 1">
+          <p>Conexão com o olhar</p>
+        </div>
+        <div class="imagem">
+          <img src="imagens/foto2.jpg" alt="Foto 2">
+          <p>Momento eterno</p>
+        </div>
+        <div class="imagem">
+          <img src="imagens/foto3.jpg" alt="Foto 3">
+          <p>Luz e expressão</p>
+        </div>
+      </div>
+    </section>
+  </main>
   <footer>
-    &copy; Copyright 2025 – Plínio Fabrício
+    <p>@Copyright 2025 • Plínio Fabrício</p>
   </footer>
-
-  <script src="js/script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
