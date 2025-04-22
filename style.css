@@ -87,12 +87,6 @@ h2 {
   font-weight: bold;
   display: none;
   z-index: 2000;
-  animation: fadeOut 4s forwards;
-}
-@keyframes fadeOut {
-  0% { opacity: 1; }
-  70% { opacity: 1; }
-  100% { opacity: 0; display: none; }
 }
 footer {
   text-align: center;
