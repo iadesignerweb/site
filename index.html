@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="pt-BR">
+<!DOCTYPE html>
+<html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,134 +12,169 @@
       background-color: #111;
       color: #fff;
       user-select: none;
-    }header {
-  background: #000;
-  padding: 15px;
-  text-align: center;
-  color: #0f0;
-  font-size: 24px;
-  font-weight: bold;
-}
+    }
 
-nav {
-  background: #1a1a1a;
-  display: flex;
-  justify-content: center;
-  gap: 30px;
-  padding: 10px 0;
-  flex-wrap: wrap;
-}
+    header {
+      background: #000;
+      padding: 15px;
+      text-align: center;
+      color: #0f0;
+      font-size: 24px;
+      font-weight: bold;
+    }
 
-nav a {
-  color: #0f0;
-  text-decoration: none;
-  font-weight: bold;
-}
+    nav {
+      background: #1a1a1a;
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      padding: 10px 0;
+      flex-wrap: wrap;
+    }
 
-section {
-  padding: 20px;
-  display: none;
-}
+    nav a {
+      color: #0f0;
+      text-decoration: none;
+      font-weight: bold;
+    }
 
-section.ativo {
-  display: block;
-}
+    section {
+      padding: 20px;
+      display: none;
+    }
 
-.login-container {
-  max-width: 300px;
-  margin: 20px auto;
-  padding: 20px;
-  background-color: #222;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0,255,0,0.3);
-}
+    section.ativo {
+      display: block;
+    }
 
-.login-container input, .login-container button {
-  width: 100%;
-  margin-bottom: 10px;
-  padding: 10px;
-  border-radius: 5px;
-  border: none;
-}
+    .login-container {
+      max-width: 300px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: #222;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,255,0,0.3);
+    }
 
-.login-container button {
-  background-color: #0f0;
-  color: #000;
-  font-weight: bold;
-}
+    .login-container input, .login-container button {
+      width: 100%;
+      margin-bottom: 10px;
+      padding: 10px;
+      border-radius: 5px;
+      border: none;
+    }
 
-.galeria {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
-  margin-top: 20px;
-}
+    .login-container button {
+      background-color: #0f0;
+      color: #000;
+      font-weight: bold;
+    }
 
-.imagem {
-  width: 300px;
-  height: 200px;
-  background-size: cover;
-  background-position: center;
-  position: relative;
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 0 10px rgba(0, 255, 0, 0.3);
-}
+    .galeria {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 20px;
+    }
 
-.imagem::after {
-  content: "PlinioStudio";
-  position: absolute;
-  bottom: 10px;
-  right: 10px;
-  font-size: 14px;
-  color: rgba(255, 255, 255, 0.4);
-  font-weight: bold;
-  pointer-events: none;
-}
+    .imagem {
+      width: 300px;
+      height: 200px;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 0 10px rgba(0, 255, 0, 0.3);
+    }
 
-footer {
-  text-align: center;
-  padding: 20px;
-  background: #000;
-  color: #fff;
-  font-size: 14px;
-}
+    .imagem::after {
+      content: "PlinioStudio";
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.4);
+      font-weight: bold;
+      pointer-events: none;
+    }
 
-@media (max-width: 600px) {
-  .imagem {
-    width: 90%;
-    height: 180px;
-  }
-}
+    #upload-area {
+      margin-top: 30px;
+      text-align: center;
+    }
 
+    #upload-area button {
+      background: #0f0;
+      color: #000;
+      font-weight: bold;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #000;
+      color: #fff;
+      font-size: 14px;
+    }
+
+    @media (max-width: 600px) {
+      .imagem {
+        width: 90%;
+        height: 180px;
+      }
+    }
   </style>
 </head>
 <body oncontextmenu="return false" onkeydown="bloquearTeclas(event)">
   <header>Banco de Imagens</header>
+
   <nav>
     <a href="#" onclick="mostrar('inicio')">Início</a>
     <a href="#" onclick="mostrar('quem')">Quem Somos</a>
     <a href="#" onclick="mostrar('contato')">Contato</a>
-  </nav>  <section id="inicio" class="ativo">
+  </nav>
+
+  <section id="inicio" class="ativo">
     <div class="login-container" id="login">
+      <h3 style="text-align:center; color:#0f0;">Acesso Restrito</h3>
       <input type="text" id="usuario" placeholder="Usuário">
       <input type="password" id="senha" placeholder="Senha">
       <button onclick="logar()">Entrar</button>
-    </div><div id="galeria-protegida" style="display: none;">
-  <div class="galeria">
-    <div class="imagem" style="background-image: url('https://iadesignerweb.github.io/Image.free/produto1.jpg');"></div>
-    <div class="imagem" style="background-image: url('https://iadesignerweb.github.io/Image.free/produto2.jpg');"></div>
-  </div>
-</div>
+      <p style="text-align:center; color:#aaa; font-size: 13px;">
+        Para acessar, solicite o ID e a senha pelo WhatsApp.
+      </p>
+    </div>
 
-  </section>  <section id="quem">
+    <div id="galeria-protegida" style="display: none;">
+      <div class="galeria">
+        <div class="imagem" style="background-image: url('https://raw.githubusercontent.com/iadesignerweb/Image.free/main/imagens/produto1.jpg');"></div>
+        <div class="imagem" style="background-image: url('https://raw.githubusercontent.com/iadesignerweb/Image.free/main/imagens/produto2.jpg');"></div>
+      </div>
+      <div id="upload-area">
+        <button onclick="alert('Em breve: Área de upload de imagens')">Cadastrar Nova Imagem</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="quem">
     <h2>Quem Somos</h2>
     <p>Somos um banco de imagens criativas com foco em segurança, exclusividade e arte digital protegida.</p>
-  </section>  <section id="contato">
+  </section>
+
+  <section id="contato">
     <h2>Contato</h2>
     <p>Para parcerias e suporte, entre em contato via WhatsApp ou e-mail: contato@pliniostudio.com</p>
-  </section>  <footer>© 2025 • Feito com amor. PlinioStudio</footer>  <script>
+  </section>
+
+  <footer>© 2025 • Feito com amor. PlinioStudio</footer>
+
+  <script>
     function bloquearTeclas(e) {
       if (e.key === "PrintScreen" || (e.ctrlKey && e.key === "u")) {
         e.preventDefault();
@@ -160,6 +196,8 @@ footer {
       if (usuario === "admin" && senha === "1234") {
         document.getElementById('login').style.display = 'none';
         document.getElementById('galeria-protegida').style.display = 'block';
+        document.getElementById('upload-area').style.display = 'block';
+        alert("Bem-vindo ao Banco de Imagens!");
       } else {
         alert("Usuário ou senha incorretos.");
       }
@@ -169,5 +207,6 @@ footer {
       document.querySelectorAll('section').forEach(sec => sec.classList.remove('ativo'));
       document.getElementById(secaoId).classList.add('ativo');
     }
-  </script></body>
+  </script>
+</body>
 </html>
