@@ -1,0 +1,20 @@
+[
+  {
+    "imagem": "produto1.jpg",
+    "nome": "Camiseta Cyber",
+    "preco": "49,90",
+    "categoria": "Moda"
+  },
+  {
+    "imagem": "produto2.jpg",
+    "nome": "Caneca Futurista",
+    "preco": "29,00",
+    "categoria": "Utilidades"
+  },
+  {
+    "imagem": "produto3.jpg",
+    "nome": "Quadro Decorativo",
+    "preco": "75,00",
+    "categoria": "Decoração"
+  }
+]
