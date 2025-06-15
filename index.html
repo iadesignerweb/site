@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Plínio Studio - Recriação Simplificada</title>
   <style>
     :root {
@@ -40,7 +40,20 @@
       background-color: rgba(26, 26, 26, 0.9);
     }
 
-    .logo {
+    .logo-container {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo-img {
+      width: 40px;
+      height: 40px;
+      margin-right: 10px;
+      background-color: #fff;
+      border-radius: 8px;
+    }
+
+    .logo-text {
       font-size: 1.8em;
       font-weight: bold;
       color: var(--primary-color);
@@ -133,6 +146,12 @@
       line-height: 1.6;
     }
 
+    ul {
+      text-align: left;
+      padding-left: 20px;
+      max-width: 800px;
+    }
+
     .carousel-container {
       width: 80%;
       max-width: 900px;
@@ -151,10 +170,13 @@
     .carousel-slide {
       min-width: 100%;
       box-sizing: border-box;
+      background: #000;
     }
 
-    .carousel-slide img {
+    .carousel-slide iframe {
       width: 100%;
+      height: 500px;
+      border: none;
       display: block;
       border-radius: 10px;
     }
@@ -243,7 +265,10 @@
 <body>
 
   <header class="header" id="mainHeader">
-    <a href="#" class="logo">Plínio Studio</a>
+    <div class="logo-container">
+      <div class="logo-img"><!-- espaço reservado para logo --></div>
+      <a href="#" class="logo-text">Plínio Studio</a>
+    </div>
     <nav>
       <ul class="nav-menu">
         <li><a href="#about">Sobre</a></li>
@@ -268,7 +293,7 @@
 
   <section id="courses" class="section">
     <h2>Nossos Cursos</h2>
-    <p>Oferecemos uma variedade de cursos para todos os níveis, desde iniciantes até profissionais que buscam aprimoramento. Nossas trilhas incluem:</p>
+    <p>Oferecemos uma variedade de cursos para todos os níveis:</p>
     <ul>
       <li>Design Gráfico e Ilustração Digital</li>
       <li>Edição e Composição de Vídeos</li>
@@ -281,13 +306,13 @@
 
   <section id="gallery" class="section">
     <h2>Galeria de Projetos dos Alunos</h2>
-    <p>Inspire-se com os trabalhos de nossos talentosos alunos. Veja o que é possível criar com dedicação e a orientação certa!</p>
+    <p>Inspire-se com os trabalhos de nossos talentosos alunos:</p>
 
     <div class="carousel-container">
       <div class="carousel-slides" id="carouselSlides">
-        <div class="carousel-slide"><img src="https://youtu.be/zh-30lvAvSk?si=_-HKlZds6-5ynx4r" alt="Projeto de Aluno 1"></div>
-        <div class="carousel-slide"><img src="https://youtu.be/iZ391VpiKXc?si=Taae-CiLmR-DOVzT" alt="Projeto de Aluno 2"></div>
-        <div class="carousel-slide"><img src="https://youtu.be/CRij1FKxJPw?si=ZJEdDAhYIi4sD94U" alt="Projeto de Aluno 3"></div>
+        <div class="carousel-slide"><iframe src="https://www.youtube.com/embed/zh-30lvAvSk" allowfullscreen></iframe></div>
+        <div class="carousel-slide"><iframe src="https://www.youtube.com/embed/iZ391VpiKXc" allowfullscreen></iframe></div>
+        <div class="carousel-slide"><iframe src="https://www.youtube.com/embed/CRij1FKxJPw" allowfullscreen></iframe></div>
       </div>
       <button class="carousel-btn prev" onclick="moveSlide(-1)">&#10094;</button>
       <button class="carousel-btn next" onclick="moveSlide(1)">&#10095;</button>
@@ -298,7 +323,7 @@
   <section id="contact" class="section">
     <h2>Fale Conosco</h2>
     <p>Tem dúvidas ou quer saber mais sobre nossos cursos? Entre em contato conosco!</p>
-    <a href="https://wa.me/5587999786261" class="btn" target="_blank" rel="noopener noreferrer">Falar com Plínio Studio</a>
+    <a href="https://wa.me/5587999786261" class="btn" target="_blank">Falar com Plínio Studio</a>
   </section>
 
   <footer class="footer">
@@ -352,6 +377,5 @@
 
     showSlides();
   </script>
-
 </body>
 </html>
