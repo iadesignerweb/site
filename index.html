@@ -3,210 +3,355 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Banco de Imagens</title>
+  <title>Plínio Studio - Recriação Simplificada</title>
   <style>
-    * { box-sizing: border-box; }
+    :root {
+      --primary-color: #f06;
+      --secondary-color: #333;
+      --text-color: #fff;
+      --bg-color: #1a1a1a;
+      --font-family: 'Arial', sans-serif;
+    }
+
     body {
+      font-family: var(--font-family);
       margin: 0;
-      font-family: Arial, sans-serif;
-      background-color: #111;
-      color: #fff;
-      user-select: none;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      overflow-x: hidden;
     }
 
-    header {
-      background: #000;
-      padding: 15px;
-      text-align: center;
-      color: #0f0;
-      font-size: 24px;
-      font-weight: bold;
-    }
-
-    nav {
-      background: #1a1a1a;
+    .header {
+      background-color: var(--bg-color);
+      padding: 15px 40px;
       display: flex;
-      justify-content: center;
-      gap: 30px;
-      padding: 10px 0;
-      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      transition: background-color 0.3s ease;
     }
 
-    nav a {
-      color: #0f0;
+    .header.scrolled {
+      background-color: rgba(26, 26, 26, 0.9);
+    }
+
+    .logo {
+      font-size: 1.8em;
+      font-weight: bold;
+      color: var(--primary-color);
+      text-decoration: none;
+    }
+
+    .nav-menu {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+    }
+
+    .nav-menu li {
+      margin-left: 30px;
+    }
+
+    .nav-menu a {
+      color: var(--text-color);
       text-decoration: none;
       font-weight: bold;
+      transition: color 0.3s ease;
     }
 
-    section {
-      padding: 20px;
-      display: none;
+    .nav-menu a:hover {
+      color: var(--primary-color);
     }
 
-    section.ativo {
-      display: block;
-    }
-
-    .login-container {
-      max-width: 300px;
-      margin: 20px auto;
-      padding: 20px;
-      background-color: #222;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,255,0,0.3);
-    }
-
-    .login-container input, .login-container button {
-      width: 100%;
-      margin-bottom: 10px;
-      padding: 10px;
-      border-radius: 5px;
-      border: none;
-    }
-
-    .login-container button {
-      background-color: #0f0;
-      color: #000;
-      font-weight: bold;
-    }
-
-    .galeria {
+    .hero {
+      height: 100vh;
       display: flex;
-      flex-wrap: wrap;
+      flex-direction: column;
       justify-content: center;
-      gap: 20px;
+      align-items: center;
+      text-align: center;
+      background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://via.placeholder.com/1500x800/222222/FFFFFF?text=Imagem+Principal') no-repeat center center/cover;
+      color: var(--text-color);
+      padding-top: 80px;
+    }
+
+    .hero h1 {
+      font-size: 3.5em;
+      margin-bottom: 20px;
+      line-height: 1.2;
+    }
+
+    .hero p {
+      font-size: 1.2em;
+      max-width: 700px;
+      margin-bottom: 30px;
+    }
+
+    .btn {
+      background-color: var(--primary-color);
+      color: var(--text-color);
+      padding: 15px 30px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: #d40055;
+    }
+
+    .section {
+      padding: 80px 40px;
+      min-height: 50vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    .section:nth-child(even) {
+      background-color: #222;
+    }
+
+    .section h2 {
+      font-size: 2.5em;
+      margin-bottom: 30px;
+      color: var(--primary-color);
+    }
+
+    .section p {
+      font-size: 1.1em;
+      max-width: 800px;
+      line-height: 1.6;
+    }
+
+    .carousel-container {
+      width: 80%;
+      max-width: 900px;
+      margin: 50px auto;
+      overflow: hidden;
+      position: relative;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    }
+
+    .carousel-slides {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .carousel-slide {
+      min-width: 100%;
+      box-sizing: border-box;
+    }
+
+    .carousel-slide img {
+      width: 100%;
+      display: block;
+      border-radius: 10px;
+    }
+
+    .carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(0, 0, 0, 0.5);
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      cursor: pointer;
+      font-size: 1.5em;
+      z-index: 10;
+    }
+
+    .carousel-btn.prev {
+      left: 10px;
+    }
+
+    .carousel-btn.next {
+      right: 10px;
+    }
+
+    .carousel-dots {
+      text-align: center;
       margin-top: 20px;
     }
 
-    .imagem {
-      width: 300px;
-      height: 200px;
-      background-size: cover;
-      background-position: center;
-      position: relative;
-      border-radius: 10px;
-      overflow: hidden;
-      box-shadow: 0 0 10px rgba(0, 255, 0, 0.3);
-    }
-
-    .imagem::after {
-      content: "PlinioStudio";
-      position: absolute;
-      bottom: 10px;
-      right: 10px;
-      font-size: 14px;
-      color: rgba(255, 255, 255, 0.4);
-      font-weight: bold;
-      pointer-events: none;
-    }
-
-    #upload-area {
-      margin-top: 30px;
-      text-align: center;
-    }
-
-    #upload-area button {
-      background: #0f0;
-      color: #000;
-      font-weight: bold;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 5px;
+    .dot {
+      height: 10px;
+      width: 10px;
+      background-color: #bbb;
+      border-radius: 50%;
+      display: inline-block;
+      margin: 0 5px;
       cursor: pointer;
+      transition: background-color 0.3s ease;
     }
 
-    footer {
+    .dot.active {
+      background-color: var(--primary-color);
+    }
+
+    .footer {
+      background-color: #0d0d0d;
+      color: #ccc;
       text-align: center;
-      padding: 20px;
-      background: #000;
-      color: #fff;
-      font-size: 14px;
+      padding: 30px 20px;
+      font-size: 0.9em;
     }
 
-    @media (max-width: 600px) {
-      .imagem {
-        width: 90%;
-        height: 180px;
+    @media (max-width: 768px) {
+      .header {
+        flex-direction: column;
+        padding: 15px 20px;
+      }
+      .nav-menu {
+        margin-top: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      .nav-menu li {
+        margin: 5px 10px;
+      }
+      .hero h1 {
+        font-size: 2.5em;
+      }
+      .hero p {
+        font-size: 1em;
+        padding: 0 20px;
+      }
+      .section {
+        padding: 50px 20px;
+      }
+      .section h2 {
+        font-size: 2em;
+      }
+      .carousel-container {
+        width: 95%;
       }
     }
   </style>
 </head>
-<body oncontextmenu="return false" onkeydown="bloquearTeclas(event)">
-  <header>Banco de Imagens</header>
+<body>
 
-  <nav>
-    <a href="#" onclick="mostrar('inicio')">Início</a>
-    <a href="#" onclick="mostrar('quem')">Quem Somos</a>
-    <a href="#" onclick="mostrar('contato')">Contato</a>
-  </nav>
+  <header class="header" id="mainHeader">
+    <a href="#" class="logo">Plínio Studio</a>
+    <nav>
+      <ul class="nav-menu">
+        <li><a href="#about">Sobre</a></li>
+        <li><a href="#courses">Cursos</a></li>
+        <li><a href="#gallery">Galeria</a></li>
+        <li><a href="#contact">Contato</a></li>
+      </ul>
+    </nav>
+  </header>
 
-  <section id="inicio" class="ativo">
-    <div class="login-container" id="login">
-      <h3 style="text-align:center; color:#0f0;">Acesso Restrito</h3>
-      <input type="text" id="usuario" placeholder="Usuário">
-      <input type="password" id="senha" placeholder="Senha">
-      <button onclick="logar()">Entrar</button>
-      <p style="text-align:center; color:#aaa; font-size: 13px;">
-        Para acessar, solicite o ID e a senha pelo WhatsApp.
-      </p>
-    </div>
-
-    <div id="galeria-protegida" style="display: none;">
-      <div class="galeria">
-        <div class="imagem" style="background-image: url('https://raw.githubusercontent.com/iadesignerweb/Image.free/main/imagens/produto1.jpg');"></div>
-        <div class="imagem" style="background-image: url('https://raw.githubusercontent.com/iadesignerweb/Image.free/main/imagens/produto2.jpg');"></div>
-      </div>
-      <div id="upload-area">
-        <button onclick="alert('Em breve: Área de upload de imagens')">Cadastrar Nova Imagem</button>
-      </div>
-    </div>
+  <section class="hero">
+    <h1>Transforme Sua Paixão em Arte Digital</h1>
+    <p>Explore um mundo de criatividade com nossos cursos de design, animação, modelagem 3D e muito mais. Seja o criador do seu futuro!</p>
+    <a href="#courses" class="btn">Conheça Nossos Cursos</a>
   </section>
 
-  <section id="quem">
+  <section id="about" class="section">
     <h2>Quem Somos</h2>
-    <p>Somos um banco de imagens criativas com foco em segurança, exclusividade e arte digital protegida.</p>
+    <p>A Plínio Studio é a sua porta de entrada para o universo do design e da arte digital. Com anos de experiência e um corpo docente especializado, oferecemos uma metodologia de ensino inovadora, focada em projetos práticos e no desenvolvimento do seu portfólio.</p>
+    <p>Acreditamos que todo talento merece ser lapidado. Junte-se a nós e descubra as infinitas possibilidades do mercado criativo.</p>
   </section>
 
-  <section id="contato">
-    <h2>Contato</h2>
-    <p>Para parcerias e suporte, entre em contato via WhatsApp ou e-mail: contato@pliniostudio.com</p>
+  <section id="courses" class="section">
+    <h2>Nossos Cursos</h2>
+    <p>Oferecemos uma variedade de cursos para todos os níveis, desde iniciantes até profissionais que buscam aprimoramento. Nossas trilhas incluem:</p>
+    <ul>
+      <li>Design Gráfico e Ilustração Digital</li>
+      <li>Edição e Composição de Vídeos</li>
+      <li>Modelagem e Animação 3D</li>
+      <li>Motion Graphics</li>
+      <li>Inteligência Artificial Aplicada à Criação</li>
+    </ul>
+    <p>Prepare-se para dominar as ferramentas mais avançadas do mercado e criar projetos incríveis!</p>
   </section>
 
-  <footer>© 2025 • Feito com amor. PlinioStudio</footer>
+  <section id="gallery" class="section">
+    <h2>Galeria de Projetos dos Alunos</h2>
+    <p>Inspire-se com os trabalhos de nossos talentosos alunos. Veja o que é possível criar com dedicação e a orientação certa!</p>
+
+    <div class="carousel-container">
+      <div class="carousel-slides" id="carouselSlides">
+        <div class="carousel-slide"><img src="https://via.placeholder.com/800x450/ff66aa/FFFFFF?text=Projeto+1" alt="Projeto de Aluno 1"></div>
+        <div class="carousel-slide"><img src="https://via.placeholder.com/800x450/66aaff/FFFFFF?text=Projeto+2" alt="Projeto de Aluno 2"></div>
+        <div class="carousel-slide"><img src="https://via.placeholder.com/800x450/aaff66/FFFFFF?text=Projeto+3" alt="Projeto de Aluno 3"></div>
+      </div>
+      <button class="carousel-btn prev" onclick="moveSlide(-1)">&#10094;</button>
+      <button class="carousel-btn next" onclick="moveSlide(1)">&#10095;</button>
+      <div class="carousel-dots" id="carouselDots"></div>
+    </div>
+  </section>
+
+  <section id="contact" class="section">
+    <h2>Fale Conosco</h2>
+    <p>Tem dúvidas ou quer saber mais sobre nossos cursos? Entre em contato conosco!</p>
+    <a href="https://wa.me/5587999786261" class="btn" target="_blank" rel="noopener noreferrer">Falar com Plínio Studio</a>
+  </section>
+
+  <footer class="footer">
+    <p>&copy; 2025 Plínio Studio. Todos os direitos reservados.</p>
+  </footer>
 
   <script>
-    function bloquearTeclas(e) {
-      if (e.key === "PrintScreen" || (e.ctrlKey && e.key === "u")) {
-        e.preventDefault();
-        alert("Proteção ativada.");
-      }
-    }
-
-    document.addEventListener('keydown', function(e) {
-      if (e.key === 'PrintScreen') {
-        navigator.clipboard.writeText('Protegido por PlinioStudio');
-        alert('Captura de tela bloqueada.');
+    window.addEventListener('scroll', function () {
+      const header = document.getElementById('mainHeader');
+      if (window.scrollY > 50) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
       }
     });
 
-    function logar() {
-      const usuario = document.getElementById('usuario').value;
-      const senha = document.getElementById('senha').value;
+    let slideIndex = 0;
+    const slides = document.querySelectorAll('.carousel-slide');
+    const carouselSlides = document.getElementById('carouselSlides');
+    const dotsContainer = document.getElementById('carouselDots');
 
-      if (usuario === "admin" && senha === "1234") {
-        document.getElementById('login').style.display = 'none';
-        document.getElementById('galeria-protegida').style.display = 'block';
-        document.getElementById('upload-area').style.display = 'block';
-        alert("Bem-vindo ao Banco de Imagens!");
-      } else {
-        alert("Usuário ou senha incorretos.");
-      }
+    for (let i = 0; i < slides.length; i++) {
+      const dot = document.createElement('span');
+      dot.classList.add('dot');
+      dot.setAttribute('data-index', i);
+      dot.addEventListener('click', () => currentSlide(i));
+      dotsContainer.appendChild(dot);
     }
 
-    function mostrar(secaoId) {
-      document.querySelectorAll('section').forEach(sec => sec.classList.remove('ativo'));
-      document.getElementById(secaoId).classList.add('ativo');
+    const dots = document.querySelectorAll('.dot');
+
+    function showSlides() {
+      if (slideIndex >= slides.length) slideIndex = 0;
+      if (slideIndex < 0) slideIndex = slides.length - 1;
+      carouselSlides.style.transform = `translateX(-${slideIndex * 100}%)`;
+      dots.forEach((dot, index) => {
+        dot.classList.remove('active');
+        if (index === slideIndex) dot.classList.add('active');
+      });
     }
+
+    function moveSlide(n) {
+      slideIndex += n;
+      showSlides();
+    }
+
+    function currentSlide(n) {
+      slideIndex = n;
+      showSlides();
+    }
+
+    showSlides();
   </script>
+
 </body>
 </html>
