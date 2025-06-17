@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Plínio Studio - Recriação Simplificada</title>
+  <title>Plínio Studio</title>
   <style>
     :root {
       --primary-color: #f06;
@@ -11,6 +11,10 @@
       --text-color: #fff;
       --bg-color: #1a1a1a;
       --font-family: 'Arial', sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
     }
 
     body {
@@ -86,7 +90,6 @@
       color: var(--primary-color);
     }
 
-    /* Submenu */
     .nav-menu li:hover .submenu {
       display: block;
     }
@@ -178,12 +181,6 @@
       font-size: 1.1em;
       max-width: 800px;
       line-height: 1.6;
-    }
-
-    ul {
-      text-align: left;
-      padding-left: 20px;
-      max-width: 800px;
     }
 
     .carousel-container {
@@ -306,7 +303,7 @@
     <nav>
       <ul class="nav-menu">
         <li><a href="#about">Sobre</a></li>
-        <li><a href="#courses">Cursos</a></li>
+        <li><a href="#services">Serviços</a></li>
         <li>
           <a href="#gallery">Galeria</a>
           <div class="submenu">
@@ -322,10 +319,18 @@
   <section class="hero">
     <h1>Transforme Sua Paixão em Arte Digital</h1>
     <p>Explore um mundo de criatividade com nossos cursos de design, animação, modelagem 3D e muito mais. Seja o criador do seu futuro!</p>
-    <a href="#courses" class="btn">Conheça Nossos Cursos</a>
+    <a href="#services" class="btn">Conheça Nossos Serviços</a>
   </section>
 
-  <!-- Restante das seções permanece igual, sem alterações -->
+  <section id="about" class="section">
+    <h2>Sobre o Estúdio</h2>
+    <p>O Plínio Studio é referência em ensino criativo e produção digital. Com anos de experiência e alunos em todo o Brasil, oferecemos soluções visuais poderosas para profissionais, criadores e empresas.</p>
+  </section>
+
+  <section id="services" class="section">
+    <h2>Nossos Serviços</h2>
+    <p>Confira nossos serviços em design gráfico, motion design, inteligência artificial aplicada, edição de vídeo, produção musical e muito mais. Qualidade de estúdio, com acompanhamento profissional.</p>
+  </section>
 
   <section id="gallery" class="section">
     <h2>Galeria de Projetos dos Alunos</h2>
