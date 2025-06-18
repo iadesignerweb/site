@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Plínio Studio</title>
+  <title>Plínio Studio - Recriação Simplificada</title>
   <style>
     :root {
       --primary-color: #f06;
@@ -11,10 +11,6 @@
       --text-color: #fff;
       --bg-color: #1a1a1a;
       --font-family: 'Arial', sans-serif;
-    }
-
-    html {
-      scroll-behavior: smooth;
     }
 
     body {
@@ -37,6 +33,7 @@
       left: 0;
       z-index: 1000;
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      transition: background-color 0.3s ease;
     }
 
     .header.scrolled {
@@ -48,12 +45,6 @@
       align-items: center;
     }
 
-    .logo-container img {
-      height: 32px;
-      margin-right: 10px;
-      border-radius: 6px;
-    }
-
     .logo-text {
       font-size: 1.8em;
       font-weight: bold;
@@ -61,17 +52,11 @@
       text-decoration: none;
     }
 
-    nav {
-      display: flex;
-      align-items: center;
-    }
-
     .nav-menu {
       list-style: none;
       margin: 0;
       padding: 0;
       display: flex;
-      align-items: center;
     }
 
     .nav-menu li {
@@ -90,33 +75,23 @@
       color: var(--primary-color);
     }
 
+    .nav-menu .submenu {
+      display: none;
+      position: absolute;
+      top: 30px;
+      background-color: #222;
+      padding: 10px;
+      border-radius: 5px;
+    }
+
     .nav-menu li:hover .submenu {
       display: block;
     }
 
-    .submenu {
-      display: none;
-      position: absolute;
-      top: 100%;
-      left: 0;
-      background-color: #111;
-      border-radius: 4px;
-      min-width: 180px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.5);
-      z-index: 999;
-    }
-
     .submenu a {
       display: block;
-      padding: 10px 15px;
-      color: var(--text-color);
-      text-decoration: none;
-      font-weight: normal;
-    }
-
-    .submenu a:hover {
-      background-color: var(--primary-color);
-      color: white;
+      padding: 5px 10px;
+      white-space: nowrap;
     }
 
     .hero {
@@ -183,6 +158,12 @@
       line-height: 1.6;
     }
 
+    ul {
+      text-align: left;
+      padding-left: 20px;
+      max-width: 800px;
+    }
+
     .carousel-container {
       width: 80%;
       max-width: 900px;
@@ -225,13 +206,8 @@
       z-index: 10;
     }
 
-    .carousel-btn.prev {
-      left: 10px;
-    }
-
-    .carousel-btn.next {
-      right: 10px;
-    }
+    .carousel-btn.prev { left: 10px; }
+    .carousel-btn.next { right: 10px; }
 
     .carousel-dots {
       text-align: center;
@@ -297,19 +273,20 @@
 
   <header class="header" id="mainHeader">
     <div class="logo-container">
-      <img src="https://raw.githubusercontent.com/iadesignerweb/site/refs/heads/main/Plinio%20Fabricio%2C%20%20Instagram%2C%20Plinio%20Studio.PNG" alt="Logo Plínio" />
+      <img src="https://raw.githubusercontent.com/iadesignerweb/site/refs/heads/main/Plinio%20Fabricio%2C%20%20Instagram%2C%20Plinio%20Studio.PNG" 
+           alt="Logo Plínio" 
+           style="height: 32px; margin-right: 10px; border-radius: 6px;" />
       <a href="#" class="logo-text">Plínio Studio</a>
     </div>
     <nav>
       <ul class="nav-menu">
         <li><a href="#about">Sobre</a></li>
-        <li><a href="#services">Serviços</a></li>
+        <li><a href="#courses">Serviços</a></li>
         <li>
           <a href="#gallery">Galeria</a>
-          <div class="submenu">
-            <a href="#gallery">Projetos de Alunos</a>
-            <a href="https://t.me/PlinioStudioBot" target="_blank">Bot do Telegram</a>
-          </div>
+          <ul class="submenu">
+            <li><a href="https://t.me/PlinioStudio_bot" target="_blank">Bot Telegram</a></li>
+          </ul>
         </li>
         <li><a href="#contact">Contato</a></li>
       </ul>
@@ -318,18 +295,28 @@
 
   <section class="hero">
     <h1>Transforme Sua Paixão em Arte Digital</h1>
-    <p>Explore um mundo de criatividade com nossos cursos de design, animação, modelagem 3D e muito mais. Seja o criador do seu futuro!</p>
-    <a href="#services" class="btn">Conheça Nossos Serviços</a>
+    <p>Explore um mundo de criatividade com nossos serviços de design, animação, modelagem 3D e muito mais. Seja o criador do seu futuro!</p>
+    <a href="#courses" class="btn">Conheça Nossos Serviços</a>
   </section>
 
   <section id="about" class="section">
-    <h2>Sobre o Estúdio</h2>
-    <p>O Plínio Studio é referência em ensino criativo e produção digital. Com anos de experiência e alunos em todo o Brasil, oferecemos soluções visuais poderosas para profissionais, criadores e empresas.</p>
+    <h2>Quem Somos</h2>
+    <p>A Plínio Studio é a sua porta de entrada para o universo do design e da arte digital. Com anos de experiência e um corpo técnico dedicado, oferecemos serviços de ponta com qualidade e inovação.</p>
   </section>
 
-  <section id="services" class="section">
-    <h2>Nossos Serviços</h2>
-    <p>Confira nossos serviços em design gráfico, motion design, inteligência artificial aplicada, edição de vídeo, produção musical e muito mais. Qualidade de estúdio, com acompanhamento profissional.</p>
+  <section id="courses" class="section">
+    <h2>Serviços</h2>
+    <p>Oferecemos uma variedade de serviços para diferentes áreas criativas:</p>
+    <ul>
+      <li>🎨 Design Gráfico e Ilustração Digital</li>
+      <li>🎬 Edição e Composição de Vídeos</li>
+      <li>🧊 Modelagem e Animação 3D</li>
+      <li>⚡ Motion Graphics</li>
+      <li>🤖 Inteligência Artificial Aplicada à Criação</li>
+      <li>🌐 Criação de Sites Personalizados</li>
+      <li>✒️ Criação de Logotipo Profissional</li>
+      <li>📘 Design e Produção de E-books</li>
+    </ul>
   </section>
 
   <section id="gallery" class="section">
@@ -349,8 +336,8 @@
 
   <section id="contact" class="section">
     <h2>Fale Conosco</h2>
-    <p>Tem dúvidas ou quer saber mais sobre nossos cursos? Entre em contato conosco!</p>
-    <a href="https://wa.me/5587999786261" class="btn" target="_blank">Falar com Plínio Studio</a>
+    <p>Tem dúvidas ou quer contratar nossos serviços? Entre em contato agora:</p>
+    <a href="https://wa.me/5587999786261" class="btn" target="_blank">Falar no WhatsApp</a>
   </section>
 
   <footer class="footer">
@@ -360,11 +347,7 @@
   <script>
     window.addEventListener('scroll', function () {
       const header = document.getElementById('mainHeader');
-      if (window.scrollY > 50) {
-        header.classList.add('scrolled');
-      } else {
-        header.classList.remove('scrolled');
-      }
+      header.classList.toggle('scrolled', window.scrollY > 50);
     });
 
     let slideIndex = 0;
@@ -387,8 +370,7 @@
       if (slideIndex < 0) slideIndex = slides.length - 1;
       carouselSlides.style.transform = `translateX(-${slideIndex * 100}%)`;
       dots.forEach((dot, index) => {
-        dot.classList.remove('active');
-        if (index === slideIndex) dot.classList.add('active');
+        dot.classList.toggle('active', index === slideIndex);
       });
     }
 
@@ -406,4 +388,4 @@
   </script>
 
 </body>
-  </html>
+</html>
