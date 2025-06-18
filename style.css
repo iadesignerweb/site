@@ -8,7 +8,7 @@
 body {
   margin: 0;
   font-family: var(--font-family);
-  background-color: var(--bg-color);
+  background: var(--bg-color);
   color: var(--text-color);
 }
 
@@ -16,12 +16,12 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 25px;
   background: var(--bg-color);
+  padding: 15px 30px;
   position: fixed;
-  width: 100%;
   top: 0;
-  z-index: 999;
+  width: 100%;
+  z-index: 1000;
 }
 
 .logo-container {
@@ -37,24 +37,22 @@ body {
 
 .logo-text {
   color: var(--primary-color);
+  font-weight: bold;
   font-size: 1.5em;
   text-decoration: none;
-  font-weight: bold;
 }
 
 .nav-menu {
   list-style: none;
   display: flex;
   gap: 25px;
-}
-
-.nav-menu li {
-  position: relative;
+  margin: 0;
+  padding: 0;
 }
 
 .nav-menu a {
-  text-decoration: none;
   color: var(--text-color);
+  text-decoration: none;
   font-weight: bold;
 }
 
@@ -62,14 +60,19 @@ body {
   color: var(--primary-color);
 }
 
-.dropdown .submenu {
+.dropdown {
+  position: relative;
+}
+
+.submenu {
   display: none;
   position: absolute;
   background: #2c2c2c;
   list-style: none;
+  margin: 0;
+  padding: 10px 0;
   top: 100%;
-  padding: 10px;
-  border-radius: 4px;
+  min-width: 150px;
 }
 
 .dropdown:hover .submenu {
@@ -77,48 +80,62 @@ body {
 }
 
 .submenu li {
-  padding: 5px 15px;
+  padding: 5px 20px;
+}
+
+.submenu a {
+  color: white;
 }
 
 .hamburger {
   display: none;
-  font-size: 2em;
-  color: var(--text-color);
+  font-size: 1.8em;
   cursor: pointer;
-}
-
-.section {
-  padding: 100px 30px 60px;
-  text-align: center;
+  color: var(--text-color);
 }
 
 .hero {
-  padding-top: 140px;
-  background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://via.placeholder.com/1500x800') no-repeat center center/cover;
   text-align: center;
+  padding: 150px 20px 80px;
+  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://via.placeholder.com/1500x800') no-repeat center center/cover;
+}
+
+.hero h1 {
+  font-size: 3em;
+  margin-bottom: 20px;
+}
+
+.hero p {
+  font-size: 1.2em;
+  max-width: 700px;
+  margin: auto;
 }
 
 .btn {
-  background-color: var(--primary-color);
+  background: var(--primary-color);
   color: white;
   padding: 12px 25px;
   text-decoration: none;
   border-radius: 5px;
-  margin-top: 15px;
   display: inline-block;
+  margin-top: 20px;
+}
+
+.section {
+  padding: 80px 20px;
+  text-align: center;
 }
 
 .service-list {
+  text-align: left;
   max-width: 800px;
   margin: auto;
-  text-align: left;
   line-height: 1.8;
-  font-size: 1.05em;
 }
 
 .carousel-container {
   max-width: 900px;
-  margin: auto;
+  margin: 30px auto;
   overflow: hidden;
   position: relative;
 }
@@ -136,20 +153,20 @@ body {
   width: 100%;
   height: 480px;
   border: none;
-  border-radius: 6px;
+  border-radius: 8px;
 }
 
 .carousel-btn {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  font-size: 2em;
-  background: rgba(0,0,0,0.5);
-  color: white;
+  background: rgba(0, 0, 0, 0.5);
   border: none;
-  padding: 5px 12px;
+  color: white;
+  font-size: 1.5em;
   cursor: pointer;
-  z-index: 5;
+  padding: 10px;
+  z-index: 10;
 }
 
 .carousel-btn.prev {
@@ -160,24 +177,42 @@ body {
   right: 10px;
 }
 
+.carousel-dots {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.dot {
+  display: inline-block;
+  height: 10px;
+  width: 10px;
+  background: #aaa;
+  border-radius: 50%;
+  margin: 0 4px;
+  cursor: pointer;
+}
+
+.dot.active {
+  background: var(--primary-color);
+}
+
 .footer {
   background: #0d0d0d;
-  padding: 20px;
   text-align: center;
+  padding: 20px;
   font-size: 0.9em;
-  color: #ccc;
 }
 
 @media (max-width: 768px) {
   .nav-menu {
     display: none;
     flex-direction: column;
-    position: absolute;
-    right: 20px;
-    top: 60px;
     background: #1a1a1a;
-    padding: 15px;
-    border-radius: 6px;
+    position: absolute;
+    right: 0;
+    top: 60px;
+    width: 200px;
+    padding: 20px;
   }
 
   .nav-menu.active {
@@ -186,5 +221,13 @@ body {
 
   .hamburger {
     display: block;
+  }
+
+  .hero h1 {
+    font-size: 2em;
+  }
+
+  .hero p {
+    font-size: 1em;
   }
 }
