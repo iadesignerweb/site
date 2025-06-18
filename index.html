@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Plínio Studio</title>
+  <title>Plínio Studio - Recriação Simplificada</title>
   <style>
     :root {
       --primary-color: #f06;
@@ -23,9 +23,8 @@
 
     .header {
       background-color: var(--bg-color);
-      padding: 15px 20px;
+      padding: 15px 40px;
       display: flex;
-      flex-wrap: wrap;
       justify-content: space-between;
       align-items: center;
       position: fixed;
@@ -46,12 +45,6 @@
       align-items: center;
     }
 
-    .logo-container img {
-      height: 32px;
-      margin-right: 10px;
-      border-radius: 6px;
-    }
-
     .logo-text {
       font-size: 1.8em;
       font-weight: bold;
@@ -61,23 +54,21 @@
 
     .nav-menu {
       list-style: none;
-      display: flex;
-      flex-wrap: wrap;
       margin: 0;
       padding: 0;
+      display: flex;
+      flex-wrap: wrap;
     }
 
     .nav-menu li {
-      margin-left: 20px;
+      margin-left: 30px;
     }
 
     .nav-menu a {
       color: var(--text-color);
       text-decoration: none;
       font-weight: bold;
-      padding: 8px 10px;
       transition: color 0.3s ease;
-      display: inline-block;
     }
 
     .nav-menu a:hover {
@@ -92,6 +83,7 @@
       align-items: center;
       text-align: center;
       background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://via.placeholder.com/1500x800/222222/FFFFFF?text=Imagem+Principal') no-repeat center center/cover;
+      color: var(--text-color);
       padding-top: 80px;
     }
 
@@ -147,29 +139,43 @@
       line-height: 1.6;
     }
 
-    .service-item {
+    .services-grid {
       display: flex;
-      justify-content: flex-start;
-      align-items: center;
-      padding: 12px 20px;
-      background-color: #2a2a2a;
-      border-radius: 8px;
-      margin-bottom: 12px;
-      font-weight: bold;
-      color: #fff;
-      transition: background-color 0.3s ease;
-      cursor: pointer;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 15px;
+      margin-top: 30px;
       width: 100%;
-      max-width: 700px;
-      text-align: left;
+      max-width: 800px;
+    }
+
+    .service-item {
+      background-color: #2a2a2a;
+      padding: 15px 20px;
+      border-radius: 8px;
+      font-size: 1.1em;
+      font-weight: bold;
+      cursor: pointer;
+      position: relative;
+      text-align: right;
+      transition: background-color 0.3s;
     }
 
     .service-item:hover {
       background-color: #333;
     }
 
-    .service-item span {
-      margin-left: 10px;
+    .service-desc {
+      margin-top: 10px;
+      font-weight: normal;
+      color: #ccc;
+      font-size: 0.95em;
+      display: none;
+      text-align: right;
+    }
+
+    .service-item.active .service-desc {
+      display: block;
     }
 
     .footer {
@@ -183,8 +189,10 @@
     @media (max-width: 768px) {
       .header {
         flex-direction: column;
+        padding: 15px 20px;
       }
       .nav-menu {
+        margin-top: 15px;
         justify-content: center;
       }
       .nav-menu li {
@@ -203,8 +211,10 @@
       .section h2 {
         font-size: 2em;
       }
-      .service-item {
-        justify-content: center;
+      .services-grid {
+        align-items: center;
+      }
+      .service-item, .service-desc {
         text-align: center;
       }
     }
@@ -214,14 +224,15 @@
 
   <header class="header" id="mainHeader">
     <div class="logo-container">
-      <img src="https://raw.githubusercontent.com/iadesignerweb/site/refs/heads/main/Plinio%20Fabricio%2C%20%20Instagram%2C%20Plinio%20Studio.PNG" alt="Logo Plínio" />
+      <img src="https://raw.githubusercontent.com/iadesignerweb/site/refs/heads/main/Plinio%20Fabricio%2C%20%20Instagram%2C%20Plinio%20Studio.PNG" 
+           alt="Logo Plínio" 
+           style="height: 32px; margin-right: 10px; border-radius: 6px;" />
       <a href="#" class="logo-text">Plínio Studio</a>
     </div>
     <nav>
       <ul class="nav-menu">
         <li><a href="#about">Sobre</a></li>
         <li><a href="#services">Serviços</a></li>
-        <li><a href="#gallery">Galeria</a></li>
         <li><a href="#contact">Contato</a></li>
       </ul>
     </nav>
@@ -229,37 +240,58 @@
 
   <section class="hero">
     <h1>Transforme Sua Paixão em Arte Digital</h1>
-    <p>Explore um mundo de criatividade com nossos cursos de design, animação, modelagem 3D e muito mais. Seja o criador do seu futuro!</p>
+    <p>Explore um mundo de criatividade com nossos serviços de design, vídeo, IA e muito mais.</p>
     <a href="#services" class="btn">Conheça Nossos Serviços</a>
   </section>
 
   <section id="about" class="section">
     <h2>Quem Somos</h2>
-    <p>A Plínio Studio é a sua porta de entrada para o universo do design e da arte digital. Com anos de experiência e um corpo docente especializado, oferecemos uma metodologia de ensino inovadora, focada em projetos práticos e no desenvolvimento do seu portfólio.</p>
+    <p>A Plínio Studio é seu estúdio de criação digital, unindo design, audiovisual e inovação. Trabalhamos com excelência e criatividade para entregar soluções visuais modernas, eficientes e que encantam.</p>
   </section>
 
   <section id="services" class="section">
     <h2>Serviços</h2>
-    <div class="service-item">🎨 <span>Design Gráfico e Ilustração Digital</span></div>
-    <div class="service-item">🎬 <span>Edição e Composição de Vídeos</span></div>
-    <div class="service-item">🧊 <span>Modelagem e Animação 3D</span></div>
-    <div class="service-item">⚡ <span>Motion Graphics</span></div>
-    <div class="service-item">🤖 <span>Inteligência Artificial Aplicada à Criação</span></div>
-    <div class="service-item">🌐 <span>Criação de Sites Personalizados</span></div>
-    <div class="service-item">✒️ <span>Criação de Logotipo Profissional</span></div>
-    <div class="service-item">📘 <span>Design e Produção de E-books</span></div>
-  </section>
-
-  <section id="gallery" class="section">
-    <h2>Galeria</h2>
-    <p>Veja alguns projetos desenvolvidos por nossos alunos e equipe.</p>
-    <!-- Exemplo de carrossel ou vídeos pode ser inserido aqui -->
+    <p>Oferecemos uma variedade de serviços para diferentes áreas criativas:</p>
+    <div class="services-grid">
+      <div class="service-item" onclick="toggleDescription(this)">
+        🎨 Design Gráfico e Ilustração Digital
+        <p class="service-desc">Criação de peças visuais impactantes, logos, posts e ilustrações.</p>
+      </div>
+      <div class="service-item" onclick="toggleDescription(this)">
+        🎬 Edição e Composição de Vídeos
+        <p class="service-desc">Edição profissional com efeitos, cortes dinâmicos e áudio sincronizado.</p>
+      </div>
+      <div class="service-item" onclick="toggleDescription(this)">
+        🧊 Modelagem e Animação 3D
+        <p class="service-desc">Criação de objetos e animações tridimensionais para vídeos e games.</p>
+      </div>
+      <div class="service-item" onclick="toggleDescription(this)">
+        ⚡ Motion Graphics
+        <p class="service-desc">Animações gráficas para vídeos publicitários, tutoriais e branding.</p>
+      </div>
+      <div class="service-item" onclick="toggleDescription(this)">
+        🤖 Inteligência Artificial Aplicada à Criação
+        <p class="service-desc">Utilização de IA para gerar imagens, vídeos, textos e automações criativas.</p>
+      </div>
+      <div class="service-item" onclick="toggleDescription(this)">
+        🌐 Criação de Sites Personalizados
+        <p class="service-desc">Desenvolvimento de sites responsivos com design moderno e otimização.</p>
+      </div>
+      <div class="service-item" onclick="toggleDescription(this)">
+        ✒️ Criação de Logotipo Profissional
+        <p class="service-desc">Identidade visual única para destacar sua marca no mercado.</p>
+      </div>
+      <div class="service-item" onclick="toggleDescription(this)">
+        📘 Design e Produção de E-books
+        <p class="service-desc">Diagramação e criação de livros digitais interativos e visuais.</p>
+      </div>
+    </div>
   </section>
 
   <section id="contact" class="section">
     <h2>Fale Conosco</h2>
-    <p>Entre em contato para mais informações:</p>
-    <a href="https://wa.me/5587999786261" class="btn" target="_blank">WhatsApp</a>
+    <p>Tem dúvidas ou deseja contratar um de nossos serviços? Fale com a gente.</p>
+    <a href="https://wa.me/5587999786261" class="btn" target="_blank">Falar com Plínio Studio</a>
   </section>
 
   <footer class="footer">
@@ -269,12 +301,12 @@
   <script>
     window.addEventListener('scroll', function () {
       const header = document.getElementById('mainHeader');
-      if (window.scrollY > 50) {
-        header.classList.add('scrolled');
-      } else {
-        header.classList.remove('scrolled');
-      }
+      header.classList.toggle('scrolled', window.scrollY > 50);
     });
+
+    function toggleDescription(el) {
+      el.classList.toggle('active');
+    }
   </script>
 </body>
 </html>
