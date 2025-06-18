@@ -4,270 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Plínio Studio - Recriação Simplificada</title>
-  <style>
-    :root {
-      --primary-color: #f06;
-      --secondary-color: #333;
-      --text-color: #fff;
-      --bg-color: #1a1a1a;
-      --font-family: 'Arial', sans-serif;
-    }
-
-    body {
-      font-family: var(--font-family);
-      margin: 0;
-      background-color: var(--bg-color);
-      color: var(--text-color);
-      overflow-x: hidden;
-    }
-
-    .header {
-      background-color: var(--bg-color);
-      padding: 15px 40px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      position: fixed;
-      width: 100%;
-      top: 0;
-      left: 0;
-      z-index: 1000;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-      transition: background-color 0.3s ease;
-    }
-
-    .header.scrolled {
-      background-color: rgba(26, 26, 26, 0.9);
-    }
-
-    .logo-container {
-      display: flex;
-      align-items: center;
-    }
-
-    .logo-text {
-      font-size: 1.8em;
-      font-weight: bold;
-      color: var(--primary-color);
-      text-decoration: none;
-    }
-
-    .nav-menu {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      display: flex;
-    }
-
-    .nav-menu li {
-      margin-left: 30px;
-      position: relative;
-    }
-
-    .nav-menu a {
-      color: var(--text-color);
-      text-decoration: none;
-      font-weight: bold;
-      transition: color 0.3s ease;
-    }
-
-    .nav-menu a:hover {
-      color: var(--primary-color);
-    }
-
-    .nav-menu .submenu {
-      display: none;
-      position: absolute;
-      top: 30px;
-      background-color: #222;
-      padding: 10px;
-      border-radius: 5px;
-    }
-
-    .nav-menu li:hover .submenu {
-      display: block;
-    }
-
-    .submenu a {
-      display: block;
-      padding: 5px 10px;
-      white-space: nowrap;
-    }
-
-    .hero {
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://via.placeholder.com/1500x800/222222/FFFFFF?text=Imagem+Principal') no-repeat center center/cover;
-      color: var(--text-color);
-      padding-top: 80px;
-    }
-
-    .hero h1 {
-      font-size: 3.5em;
-      margin-bottom: 20px;
-      line-height: 1.2;
-    }
-
-    .hero p {
-      font-size: 1.2em;
-      max-width: 700px;
-      margin-bottom: 30px;
-    }
-
-    .btn {
-      background-color: var(--primary-color);
-      color: var(--text-color);
-      padding: 15px 30px;
-      border-radius: 5px;
-      text-decoration: none;
-      font-weight: bold;
-      transition: background-color 0.3s ease;
-    }
-
-    .btn:hover {
-      background-color: #d40055;
-    }
-
-    .section {
-      padding: 80px 40px;
-      min-height: 50vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-    }
-
-    .section:nth-child(even) {
-      background-color: #222;
-    }
-
-    .section h2 {
-      font-size: 2.5em;
-      margin-bottom: 30px;
-      color: var(--primary-color);
-    }
-
-    .section p {
-      font-size: 1.1em;
-      max-width: 800px;
-      line-height: 1.6;
-    }
-
-    ul {
-      text-align: left;
-      padding-left: 20px;
-      max-width: 800px;
-    }
-
-    .carousel-container {
-      width: 80%;
-      max-width: 900px;
-      margin: 50px auto;
-      overflow: hidden;
-      position: relative;
-      border-radius: 10px;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
-    }
-
-    .carousel-slides {
-      display: flex;
-      transition: transform 0.5s ease-in-out;
-    }
-
-    .carousel-slide {
-      min-width: 100%;
-      box-sizing: border-box;
-      background: #000;
-    }
-
-    .carousel-slide iframe {
-      width: 100%;
-      height: 500px;
-      border: none;
-      display: block;
-      border-radius: 10px;
-    }
-
-    .carousel-btn {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background-color: rgba(0, 0, 0, 0.5);
-      color: white;
-      border: none;
-      padding: 10px 15px;
-      cursor: pointer;
-      font-size: 1.5em;
-      z-index: 10;
-    }
-
-    .carousel-btn.prev { left: 10px; }
-    .carousel-btn.next { right: 10px; }
-
-    .carousel-dots {
-      text-align: center;
-      margin-top: 20px;
-    }
-
-    .dot {
-      height: 10px;
-      width: 10px;
-      background-color: #bbb;
-      border-radius: 50%;
-      display: inline-block;
-      margin: 0 5px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
-
-    .dot.active {
-      background-color: var(--primary-color);
-    }
-
-    .footer {
-      background-color: #0d0d0d;
-      color: #ccc;
-      text-align: center;
-      padding: 30px 20px;
-      font-size: 0.9em;
-    }
-
-    @media (max-width: 768px) {
-      .header {
-        flex-direction: column;
-        padding: 15px 20px;
-      }
-      .nav-menu {
-        margin-top: 15px;
-        flex-wrap: wrap;
-        justify-content: center;
-      }
-      .nav-menu li {
-        margin: 5px 10px;
-      }
-      .hero h1 {
-        font-size: 2.5em;
-      }
-      .hero p {
-        font-size: 1em;
-        padding: 0 20px;
-      }
-      .section {
-        padding: 50px 20px;
-      }
-      .section h2 {
-        font-size: 2em;
-      }
-      .carousel-container {
-        width: 95%;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
@@ -281,10 +18,11 @@
     <nav>
       <ul class="nav-menu">
         <li><a href="#about">Sobre</a></li>
-        <li><a href="#courses">Serviços</a></li>
-        <li>
-          <a href="#gallery">Galeria</a>
-          <ul class="submenu">
+        <li><a href="#services">Serviços</a></li>
+        <li class="submenu">
+          <a href="#gallery">Galeria ▾</a>
+          <ul class="dropdown">
+            <li><a href="#gallery">Portfólio</a></li>
             <li><a href="https://t.me/PlinioStudio_bot" target="_blank">Bot Telegram</a></li>
           </ul>
         </li>
@@ -295,33 +33,59 @@
 
   <section class="hero">
     <h1>Transforme Sua Paixão em Arte Digital</h1>
-    <p>Explore um mundo de criatividade com nossos serviços de design, animação, modelagem 3D e muito mais. Seja o criador do seu futuro!</p>
-    <a href="#courses" class="btn">Conheça Nossos Serviços</a>
+    <p>Explore um mundo de criatividade com nossos serviços de design, animação, IA e muito mais.</p>
+    <a href="#services" class="btn">Conheça Nossos Serviços</a>
   </section>
 
   <section id="about" class="section">
     <h2>Quem Somos</h2>
-    <p>A Plínio Studio é a sua porta de entrada para o universo do design e da arte digital. Com anos de experiência e um corpo técnico dedicado, oferecemos serviços de ponta com qualidade e inovação.</p>
+    <p>O Plínio Studio é referência em soluções criativas. Acreditamos na fusão entre design, arte e tecnologia para gerar impacto real. Com experiência consolidada e uma comunidade de clientes satisfeitos, oferecemos produtos únicos e funcionais com um olhar contemporâneo.</p>
   </section>
 
-  <section id="courses" class="section">
-    <h2>Serviços</h2>
+  <section id="services" class="section">
+    <h2>Nossos Serviços</h2>
     <p>Oferecemos uma variedade de serviços para diferentes áreas criativas:</p>
-    <ul>
-      <li>🎨 Design Gráfico e Ilustração Digital</li>
-      <li>🎬 Edição e Composição de Vídeos</li>
-      <li>🧊 Modelagem e Animação 3D</li>
-      <li>⚡ Motion Graphics</li>
-      <li>🤖 Inteligência Artificial Aplicada à Criação</li>
-      <li>🌐 Criação de Sites Personalizados</li>
-      <li>✒️ Criação de Logotipo Profissional</li>
-      <li>📘 Design e Produção de E-books</li>
-    </ul>
+
+    <div class="service-list">
+      <details>
+        <summary>🎨 Design Gráfico e Ilustração Digital</summary>
+        <p>Criação de identidades visuais impactantes, artes para redes sociais e ilustrações únicas.</p>
+      </details>
+      <details>
+        <summary>🎬 Edição e Composição de Vídeos</summary>
+        <p>Montagens profissionais, transições dinâmicas e storytelling visual para engajar seu público.</p>
+      </details>
+      <details>
+        <summary>🧊 Modelagem e Animação 3D</summary>
+        <p>Modelos tridimensionais e animações realistas para games, apresentações ou publicidade.</p>
+      </details>
+      <details>
+        <summary>⚡ Motion Graphics</summary>
+        <p>Animações gráficas modernas para vinhetas, introduções e conteúdo audiovisual interativo.</p>
+      </details>
+      <details>
+        <summary>🤖 Inteligência Artificial Aplicada à Criação</summary>
+        <p>Automatize, potencialize e inove usando ferramentas de IA para gerar imagens, vídeos e textos.</p>
+      </details>
+      <details>
+        <summary>🌐 Criação de Sites Personalizados</summary>
+        <p>Sites rápidos, responsivos e com design único voltados para performance e conversão.</p>
+      </details>
+      <details>
+        <summary>✒️ Criação de Logotipo Profissional</summary>
+        <p>Logotipos autorais, exclusivos e memoráveis com conceito alinhado à sua marca.</p>
+      </details>
+      <details>
+        <summary>📘 Design e Produção de E-books</summary>
+        <p>E-books com diagramação criativa, capa profissional e formato pronto para venda ou distribuição.</p>
+      </details>
+    </div>
   </section>
 
   <section id="gallery" class="section">
-    <h2>Galeria de Projetos dos Alunos</h2>
-    <p>Inspire-se com os trabalhos de nossos talentosos alunos:</p>
+    <h2>Galeria</h2>
+    <p>Veja alguns projetos realizados com dedicação e excelência:</p>
+
     <div class="carousel-container">
       <div class="carousel-slides" id="carouselSlides">
         <div class="carousel-slide"><iframe src="https://www.youtube.com/embed/zh-30lvAvSk" allowfullscreen></iframe></div>
@@ -336,8 +100,8 @@
 
   <section id="contact" class="section">
     <h2>Fale Conosco</h2>
-    <p>Tem dúvidas ou quer contratar nossos serviços? Entre em contato agora:</p>
-    <a href="https://wa.me/5587999786261" class="btn" target="_blank">Falar no WhatsApp</a>
+    <p>Tem dúvidas ou quer contratar algum serviço? Clique abaixo para conversar!</p>
+    <a href="https://wa.me/5587999786261" class="btn" target="_blank">Falar com Plínio Studio</a>
   </section>
 
   <footer class="footer">
@@ -345,32 +109,33 @@
   </footer>
 
   <script>
+    // Header fixo
     window.addEventListener('scroll', function () {
       const header = document.getElementById('mainHeader');
       header.classList.toggle('scrolled', window.scrollY > 50);
     });
 
+    // Carrossel
     let slideIndex = 0;
     const slides = document.querySelectorAll('.carousel-slide');
     const carouselSlides = document.getElementById('carouselSlides');
     const dotsContainer = document.getElementById('carouselDots');
 
-    for (let i = 0; i < slides.length; i++) {
+    slides.forEach((_, i) => {
       const dot = document.createElement('span');
-      dot.classList.add('dot');
-      dot.setAttribute('data-index', i);
-      dot.addEventListener('click', () => currentSlide(i));
+      dot.className = 'dot';
+      dot.dataset.index = i;
+      dot.onclick = () => currentSlide(i);
       dotsContainer.appendChild(dot);
-    }
+    });
 
     const dots = document.querySelectorAll('.dot');
 
     function showSlides() {
-      if (slideIndex >= slides.length) slideIndex = 0;
-      if (slideIndex < 0) slideIndex = slides.length - 1;
+      slideIndex = (slideIndex + slides.length) % slides.length;
       carouselSlides.style.transform = `translateX(-${slideIndex * 100}%)`;
-      dots.forEach((dot, index) => {
-        dot.classList.toggle('active', index === slideIndex);
+      dots.forEach((dot, i) => {
+        dot.classList.toggle('active', i === slideIndex);
       });
     }
 
@@ -386,6 +151,5 @@
 
     showSlides();
   </script>
-
 </body>
 </html>
