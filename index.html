@@ -1,344 +1,261 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Plínio Studio</title>
-  <style>
-    :root {
-      --primary: #f06;
-      --dark: #1a1a1a;
-      --text: #fff;
-    }
+  <meta name="theme-color" content="#6C4BBE">
+  <meta name="description" content="Soluções criativas em design, IA, automações, audiovisual e muito mais.">
+  <meta property="og:title" content="Plínio Studio">
+  <meta property="og:description" content="Transformamos sua ideia.">
+  <meta property="og:image" content="https://raw.githubusercontent.com/iadesignerweb/site/refs/heads/main/Plinio%20Fabricio%2C%20%20Instagram%2C%20Plinio%20Studio.PNG">
+  <link rel="icon" href="https://raw.githubusercontent.com/iadesignerweb/site/refs/heads/main/Plinio%20Fabricio%2C%20%20Instagram%2C%20Plinio%20Studio.PNG">
 
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <style>
+    * { box-sizing: border-box; }
     body {
       margin: 0;
-      font-family: 'Arial', sans-serif;
-      background: var(--dark);
-      color: var(--text);
+      font-family: "Segoe UI", sans-serif;
+      background: #f7f7f7;
+      color: #333;
+      transition: background 0.3s, color 0.3s;
     }
-
+    body.dark-mode {
+      background: #121212;
+      color: #f1f1f1;
+    }
     header {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      background: var(--dark);
-      z-index: 1000;
+      background: #2d174a;
+      color: white;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 10px 20px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+      padding: 1rem 2rem;
     }
-
-    .logo-container {
-      display: flex;
-      align-items: center;
-    }
-
-    .logo-container img {
-      height: 32px;
-      margin-right: 10px;
+    header img.logo {
+      height: 50px;
       border-radius: 6px;
     }
-
-    .logo-text {
-      color: var(--primary);
-      font-weight: bold;
-      font-size: 1.5em;
-      text-decoration: none;
-    }
-
-    nav {
-      display: flex;
-    }
-
-    .nav-menu {
-      list-style: none;
-      display: flex;
-      margin: 0;
-      padding: 0;
-    }
-
-    .nav-menu li {
-      position: relative;
-      margin-left: 25px;
-    }
-
-    .nav-menu a {
-      color: var(--text);
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    .nav-menu li:hover > ul {
-      display: block;
-    }
-
-    .nav-menu ul {
-      display: none;
-      position: absolute;
-      background: #111;
-      padding: 10px 0;
-      top: 30px;
-      left: 0;
-      border-radius: 6px;
-    }
-
-    .nav-menu ul li {
-      padding: 5px 20px;
-      white-space: nowrap;
-    }
-
-    .hamburger {
-      display: none;
-      flex-direction: column;
-      cursor: pointer;
+    nav a {
+      color: white;
       margin-left: 20px;
-    }
-
-    .hamburger span {
-      height: 3px;
-      width: 25px;
-      background: var(--text);
-      margin: 4px 0;
-      border-radius: 5px;
-    }
-
-    .hero {
-      padding-top: 90px;
-      height: 100vh;
-      background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://via.placeholder.com/1500x800/222222/FFFFFF?text=Imagem+Principal') no-repeat center center/cover;
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-
-    .hero h1 {
-      font-size: 3em;
-      margin-bottom: 20px;
-    }
-
-    .btn {
-      background: var(--primary);
-      color: #fff;
-      padding: 12px 24px;
-      border: none;
-      border-radius: 5px;
-      font-weight: bold;
       text-decoration: none;
+      font-weight: 500;
     }
-
-    section {
-      padding: 80px 20px;
+    .toggle-dark {
+      background: transparent;
+      color: white;
+      border: 1px solid white;
+      padding: 5px 10px;
+      border-radius: 5px;
+      cursor: pointer;
     }
-
-    section h2 {
-      font-size: 2em;
-      color: var(--primary);
+    .hero {
+      background: linear-gradient(120deg, #6C4BBE, #9C7DF2);
+      color: white;
+      padding: 60px 20px;
+      text-align: center;
+    }
+    .hero h1 span {
+      border-right: 2px solid white;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+    .services, .contact {
+      padding: 40px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+    .services h2, .contact h2 {
+      text-align: center;
       margin-bottom: 30px;
     }
-
-    .services-grid {
-      max-width: 900px;
-      margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
     }
-
-    .service-item {
-      background: #2a2a2a;
-      padding: 15px 20px;
-      margin-bottom: 15px;
-      border-radius: 8px;
+    .service {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 0 8px rgba(0,0,0,0.05);
+      padding: 20px;
+      text-align: center;
       cursor: pointer;
-      width: 100%;
+      transition: all 0.3s;
     }
-
-    .service-desc {
+    .service:hover {
+      background: #f0f0f0;
+    }
+    body.dark-mode .service {
+      background: #1e1e1e;
+    }
+    .service-description {
       display: none;
-      font-size: 0.95em;
-      margin-top: 8px;
+      margin-top: 10px;
+      font-size: 0.9rem;
+      color: #555;
+    }
+    body.dark-mode .service-description {
       color: #ccc;
     }
-
-    .service-item.active .service-desc {
-      display: block;
-    }
-
-    .carousel-container {
-      max-width: 900px;
-      margin: 0 auto;
-      overflow: hidden;
-      border-radius: 10px;
-    }
-
-    .carousel-slides {
-      display: flex;
-      transition: transform 0.5s ease;
-    }
-
-    .carousel-slide {
-      min-width: 100%;
-      box-sizing: border-box;
-    }
-
-    .carousel-slide iframe {
+    form input, form textarea {
       width: 100%;
-      height: 450px;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    form button {
+      background: #6C4BBE;
+      color: white;
+      padding: 12px 20px;
       border: none;
-      border-radius: 10px;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
     }
-
     footer {
-      background: #0d0d0d;
+      background: #2d174a;
+      color: #fff;
       text-align: center;
-      padding: 30px 15px;
-      color: #aaa;
+      padding: 15px;
+      font-size: 14px;
     }
-
-    @media (max-width: 768px) {
-      nav {
-        display: none;
-        flex-direction: column;
-        width: 100%;
-        background: #111;
-      }
-
-      nav.active {
-        display: flex;
-      }
-
-      .nav-menu {
-        flex-direction: column;
-        width: 100%;
-        padding: 10px 0;
-      }
-
-      .nav-menu li {
-        margin: 0;
-        padding: 10px 20px;
-        border-bottom: 1px solid #222;
-      }
-
-      .hamburger {
-        display: flex;
-      }
-
-      .carousel-slide iframe {
-        height: 250px;
-      }
+    .whatsapp-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #25d366;
+      color: white;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 30px;
+      text-decoration: none;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+      z-index: 1000;
     }
   </style>
 </head>
+
 <body>
 
-  <header>
-    <div class="logo-container">
-      <img src="https://raw.githubusercontent.com/iadesignerweb/site/refs/heads/main/Plinio%20Fabricio%2C%20%20Instagram%2C%20Plinio%20Studio.PNG" alt="Logo" />
-      <a href="#" class="logo-text">Plínio Studio</a>
+<header>
+  <a href="#">
+    <img src="https://raw.githubusercontent.com/iadesignerweb/site/refs/heads/main/Plinio%20Fabricio%2C%20%20Instagram%2C%20Plinio%20Studio.PNG" 
+         alt="Logo Plínio Studio" class="logo" />
+  </a>
+  <nav>
+    <a href="#servicos">Serviços</a>
+    <a href="#contato">Contato</a>
+    <button class="toggle-dark" onclick="toggleDarkMode()">🌙</button>
+  </nav>
+</header>
+
+<section class="hero">
+  <h1><span id="typing"></span></h1>
+  <p>Especialistas em design, audiovisual, inteligência artificial e automações para criadores de conteúdo e empresas.</p>
+</section>
+
+<section class="services" id="servicos">
+  <h2 data-aos="fade-up">Serviços</h2>
+  <div class="service-grid">
+    <div class="service" onclick="toggleDescription(this)" data-aos="zoom-in">
+      🎨 Logomarcas Profissionais
+      <div class="service-description">Criação de logomarcas únicas, modernas e com identidade visual forte para sua marca.</div>
     </div>
-
-    <div class="hamburger" onclick="toggleMenu()">
-      <span></span>
-      <span></span>
-      <span></span>
+    <div class="service" onclick="toggleDescription(this)" data-aos="zoom-in">
+      🌐 Criação de Sites Responsivos
+      <div class="service-description">Sites bonitos, rápidos e que se adaptam a qualquer dispositivo, prontos para destacar sua presença online.</div>
     </div>
-
-    <nav id="menuNav">
-      <ul class="nav-menu">
-        <li><a href="#about">Sobre</a></li>
-        <li><a href="#services">Serviços</a></li>
-        <li>
-          <a href="#gallery">Galeria</a>
-          <ul>
-            <li><a href="https://t.me/PlinioStudio_bot" target="_blank">Bot Telegram</a></li>
-          </ul>
-        </li>
-        <li><a href="#contact">Contato</a></li>
-      </ul>
-    </nav>
-  </header>
-
-  <section class="hero">
-    <h1>Transforme Sua Paixão em Arte Digital</h1>
-    <a href="#services" class="btn">Ver Serviços</a>
-  </section>
-
-  <section id="about">
-    <h2>Quem Somos</h2>
-    <p>A Plínio Studio é um estúdio criativo que une arte, tecnologia e educação visual com inteligência e impacto.</p>
-  </section>
-
-  <section id="services">
-    <h2>Serviços</h2>
-    <div class="services-grid">
-      <div class="service-item" onclick="toggleDesc(this)">
-        🎨 Design Gráfico e Ilustração Digital
-        <div class="service-desc">Criação de artes para marcas, redes sociais, impressos e campanhas visuais.</div>
-      </div>
-      <div class="service-item" onclick="toggleDesc(this)">
-        🎬 Edição e Composição de Vídeos
-        <div class="service-desc">Edição profissional com trilhas, cortes dinâmicos e identidade visual.</div>
-      </div>
-      <div class="service-item" onclick="toggleDesc(this)">
-        🧊 Modelagem e Animação 3D
-        <div class="service-desc">Criação de modelos e animações tridimensionais para projetos visuais.</div>
-      </div>
-      <div class="service-item" onclick="toggleDesc(this)">
-        ⚡ Motion Graphics
-        <div class="service-desc">Animações gráficas para vídeos publicitários, educativos e institucionais.</div>
-      </div>
-      <div class="service-item" onclick="toggleDesc(this)">
-        🤖 IA Aplicada à Criação
-        <div class="service-desc">Utilização de inteligência artificial para acelerar e refinar processos criativos.</div>
-      </div>
-      <div class="service-item" onclick="toggleDesc(this)">
-        🌐 Criação de Sites Personalizados
-        <div class="service-desc">Websites modernos, rápidos e compatíveis com dispositivos móveis.</div>
-      </div>
-      <div class="service-item" onclick="toggleDesc(this)">
-        ✒️ Criação de Logotipo Profissional
-        <div class="service-desc">Identidade visual marcante e original para sua marca ou projeto.</div>
-      </div>
-      <div class="service-item" onclick="toggleDesc(this)">
-        📘 Design e Produção de E-books
-        <div class="service-desc">Material digital interativo e com excelente diagramação visual.</div>
-      </div>
+    <div class="service" onclick="toggleDescription(this)" data-aos="zoom-in">
+      🎬 Edição Áudiovisual Premium
+      <div class="service-description">Edição profissional de vídeos para YouTube, redes sociais, comerciais e projetos especiais.</div>
     </div>
-  </section>
-
-  <section id="gallery">
-    <h2>Galeria</h2>
-    <div class="carousel-container">
-      <div class="carousel-slides">
-        <div class="carousel-slide"><iframe src="https://www.youtube.com/embed/zh-30lvAvSk" allowfullscreen></iframe></div>
-        <div class="carousel-slide"><iframe src="https://www.youtube.com/embed/iZ391VpiKXc" allowfullscreen></iframe></div>
-        <div class="carousel-slide"><iframe src="https://www.youtube.com/embed/CRij1FKxJPw" allowfullscreen></iframe></div>
-      </div>
+    <div class="service" onclick="toggleDescription(this)" data-aos="zoom-in">
+      📺 Criação de Canais YouTube
+      <div class="service-description">Auxiliamos desde a identidade do canal até roteiros, capas, vídeos e estratégias de crescimento.</div>
     </div>
-  </section>
+    <div class="service" onclick="toggleDescription(this)" data-aos="zoom-in">
+      🤖 Chatbots para WhatsApp e Telegram
+      <div class="service-description">Automatize atendimentos, vendas e suporte com chatbots inteligentes e personalizados.</div>
+    </div>
+    <div class="service" onclick="toggleDescription(this)" data-aos="zoom-in">
+      🎓 Cursos sobre Inteligência Artificial
+      <div class="service-description">Aprenda IA aplicada de forma prática: chatbots, automações, criação de conteúdo e muito mais.</div>
+    </div>
+    <div class="service" onclick="toggleDescription(this)" data-aos="zoom-in">
+      📘 E-books Personalizados
+      <div class="service-description">Produção de e-books com design profissional, diagramação e conteúdos sob medida.</div>
+    </div>
+    <div class="service" onclick="toggleDescription(this)" data-aos="zoom-in">
+      🔊 Áudiobooks Profissionais
+      <div class="service-description">Gravação de áudiobooks com voz profissional, trilhas e qualidade de estúdio.</div>
+    </div>
+  </div>
+</section>
 
-  <section id="contact">
-    <h2>Contato</h2>
-    <p>Fale diretamente com a equipe Plínio Studio pelo WhatsApp:</p>
-    <a href="https://wa.me/5587999786261" class="btn" target="_blank">Falar no WhatsApp</a>
-  </section>
+<section class="contact" id="contato">
+  <h2 data-aos="fade-up">Fale Conosco</h2>
+  <form id="whatsappForm">
+    <input type="text" name="nome" id="nome" placeholder="Seu nome" required />
+    <input type="email" name="email" id="email" placeholder="Seu e-mail" required />
+    <textarea name="mensagem" id="mensagem" rows="5" placeholder="Sua mensagem" required></textarea>
+    <button type="submit">Enviar Mensagem</button>
+  </form>
+</section>
 
-  <footer>
-    &copy; 2025 Plínio Studio. Todos os direitos reservados.
-  </footer>
+<footer>
+  @Copyright 2025 - Direitos reservados a Plínio Studio.
+</footer>
 
-  <script>
-    function toggleMenu() {
-      document.getElementById('menuNav').classList.toggle('active');
-    }
+<a href="https://wa.me/5587999786261" class="whatsapp-button" target="_blank">💬</a>
 
-    function toggleDesc(el) {
-      el.classList.toggle('active');
-    }
-  </script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init();
+
+  function toggleDescription(element) {
+    const desc = element.querySelector('.service-description');
+    const isVisible = desc.style.display === 'block';
+    const allDescriptions = document.querySelectorAll('.service-description');
+    allDescriptions.forEach(d => d.style.display = 'none');
+    desc.style.display = isVisible ? 'none' : 'block';
+  }
+
+  function toggleDarkMode() {
+    document.body.classList.toggle('dark-mode');
+  }
+
+  document.getElementById('whatsappForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const nome = document.getElementById('nome').value;
+    const email = document.getElementById('email').value;
+    const mensagem = document.getElementById('mensagem').value;
+
+    const texto = `Olá, me chamo ${nome}.%0AEmail: ${email}%0A${mensagem}`;
+    const url = `https://wa.me/5587999786261?text=${texto}`;
+
+    window.open(url, '_blank');
+  });
+
+  const text = 'Transformamos sua ideia';
+  let index = 0;
+  function type() {
+    const typingElement = document.getElementById('typing');
+    typingElement.textContent = text.slice(0, index);
+    index++;
+    if (index > text.length) index = 0;
+    setTimeout(type, 150);
+  }
+  type();
+</script>
+
 </body>
 </html>
