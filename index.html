@@ -1,151 +1,41 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Plínio Studio</title>
-  <meta name="theme-color" content="#6C4BBE" />
-  <meta name="description" content="Soluções criativas em design, IA, automações, audiovisual e muito mais." />
-  <meta property="og:title" content="Plínio Studio" />
-  <meta property="og:description" content="Transformamos sua ideia." />
-  <meta property="og:image" content="https://raw.githubusercontent.com/iadesignerweb/site/refs/heads/main/Plinio%20Fabricio%2C%20%20Instagram%2C%20Plinio%20Studio.PNG" />
-  <link rel="icon" href="https://raw.githubusercontent.com/iadesignerweb/site/refs/heads/main/Plinio%20Fabricio%2C%20%20Instagram%2C%20Plinio%20Studio.PNG" />
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
-
+  <meta name="theme-color" content="#6C4BBE">
+  <meta name="description" content="Soluções criativas em design, IA, automações, audiovisual e muito mais.">
+  <meta property="og:title" content="Plínio Studio">
+  <meta property="og:description" content="Transformamos sua ideia.">
+  <meta property="og:image" content="https://raw.githubusercontent.com/iadesignerweb/site/refs/heads/main/Plinio%20Fabricio%2C%20%20Instagram%2C%20Plinio%20Studio.PNG">
+  <link rel="icon" href="https://raw.githubusercontent.com/iadesignerweb/site/refs/heads/main/Plinio%20Fabricio%2C%20%20Instagram%2C%20Plinio%20Studio.PNG">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <style>
     * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      font-family: "Segoe UI", sans-serif;
-      background: #f7f7f7;
-      color: #333;
-      transition: background 0.3s, color 0.3s;
-    }
-    body.dark-mode {
-      background: #121212;
-      color: #f1f1f1;
-    }
-    header {
-      background: #2d174a;
-      color: white;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 1rem 2rem;
-    }
-    header img.logo {
-      height: 50px;
-      border-radius: 6px;
-    }
-    nav a {
-      color: white;
-      margin-left: 20px;
-      text-decoration: none;
-      font-weight: 500;
-    }
-    .toggle-dark {
-      background: transparent;
-      color: white;
-      border: 1px solid white;
-      padding: 5px 10px;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-    .hero {
-      background: linear-gradient(120deg, #6C4BBE, #9C7DF2);
-      color: white;
-      padding: 60px 20px;
-      text-align: center;
-    }
-    .hero h1 span {
-      border-right: 2px solid white;
-      white-space: nowrap;
-      overflow: hidden;
-    }
-    .services, .contact {
-      padding: 40px 20px;
-      max-width: 1000px;
-      margin: auto;
-    }
-    .services h2, .contact h2 {
-      text-align: center;
-      margin-bottom: 30px;
-    }
-    .service-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
-    }
-    .service {
-      background: white;
-      border-radius: 10px;
-      box-shadow: 0 0 8px rgba(0,0,0,0.05);
-      padding: 20px;
-      text-align: center;
-      cursor: pointer;
-      transition: all 0.3s;
-      text-decoration: none;
-      color: inherit;
-    }
-    .service:hover {
-      background: #f0f0f0;
-    }
-    body.dark-mode .service {
-      background: #1e1e1e;
-    }
-    .service-description {
-      display: none;
-      margin-top: 10px;
-      font-size: 0.9rem;
-      color: #555;
-    }
-    body.dark-mode .service-description {
-      color: #ccc;
-    }
-    form input, form textarea {
-      width: 100%;
-      padding: 10px;
-      margin: 10px 0;
-      border-radius: 5px;
-      border: 1px solid #ccc;
-    }
-    form button {
-      background: #6C4BBE;
-      color: white;
-      padding: 12px 20px;
-      border: none;
-      border-radius: 5px;
-      font-weight: bold;
-      cursor: pointer;
-    }
-    footer {
-      background: #2d174a;
-      color: #fff;
-      text-align: center;
-      padding: 15px;
-      font-size: 14px;
-    }
-    .whatsapp-button {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background-color: #25d366;
-      color: white;
-      border-radius: 50%;
-      width: 60px;
-      height: 60px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 30px;
-      text-decoration: none;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.3);
-      z-index: 1000;
-    }
+    body { margin: 0; font-family: "Segoe UI", sans-serif; background: #f7f7f7; color: #333; transition: background 0.3s, color 0.3s; }
+    body.dark-mode { background: #121212; color: #f1f1f1; }
+    header { background: #2d174a; color: white; display: flex; align-items: center; justify-content: space-between; padding: 1rem 2rem; }
+    header img.logo { height: 50px; border-radius: 6px; }
+    nav a { color: white; margin-left: 20px; text-decoration: none; font-weight: 500; }
+    .toggle-dark { background: transparent; color: white; border: 1px solid white; padding: 5px 10px; border-radius: 5px; cursor: pointer; }
+    .hero { background: linear-gradient(120deg, #6C4BBE, #9C7DF2); color: white; padding: 60px 20px; text-align: center; }
+    .hero h1 span { border-right: 2px solid white; white-space: nowrap; overflow: hidden; }
+    .services, .contact { padding: 40px 20px; max-width: 1000px; margin: auto; }
+    .services h2, .contact h2 { text-align: center; margin-bottom: 30px; }
+    .service-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
+    .service { background: white; border-radius: 10px; box-shadow: 0 0 8px rgba(0,0,0,0.05); padding: 20px; text-align: center; cursor: pointer; transition: all 0.3s; text-decoration: none; color: inherit; }
+    .service:hover { background: #f0f0f0; }
+    body.dark-mode .service { background: #1e1e1e; }
+    .service-description { display: none; margin-top: 10px; font-size: 0.9rem; color: #555; }
+    body.dark-mode .service-description { color: #ccc; }
+    form input, form textarea { width: 100%; padding: 10px; margin: 10px 0; border-radius: 5px; border: 1px solid #ccc; }
+    form button { background: #6C4BBE; color: white; padding: 12px 20px; border: none; border-radius: 5px; font-weight: bold; cursor: pointer; }
+    footer { background: #2d174a; color: #fff; text-align: center; padding: 15px; font-size: 14px; }
+    .whatsapp-button { position: fixed; bottom: 20px; right: 20px; background-color: #25d366; color: white; border-radius: 50%; width: 60px; height: 60px; display: flex; justify-content: center; align-items: center; font-size: 30px; text-decoration: none; box-shadow: 0 2px 10px rgba(0,0,0,0.3); z-index: 1000; }
   </style>
 </head>
 <body>
-
 <header>
   <a href="#"><img src="https://raw.githubusercontent.com/iadesignerweb/site/refs/heads/main/Plinio%20Fabricio%2C%20%20Instagram%2C%20Plinio%20Studio.PNG" alt="Logo Plínio Studio" class="logo" /></a>
   <nav>
@@ -154,55 +44,51 @@
     <button class="toggle-dark" onclick="toggleDarkMode()">🌙</button>
   </nav>
 </header>
-
 <section class="hero">
   <h1><span id="typing"></span></h1>
   <p>Especialistas em design, audiovisual, inteligência artificial e automações para criadores de conteúdo e empresas.</p>
 </section>
-
 <section class="services" id="servicos">
   <h2 data-aos="fade-up">Serviços</h2>
   <div class="service-grid">
-    <a href="(inserir link)" class="service" data-aos="zoom-in">
+    <a href="https://iadesignerweb.github.io/plataforma-/" class="service" data-aos="zoom-in">
       🔧 Otimizar Canal YouTube
       <div class="service-description">Ferramenta estratégica para thumbnails, títulos, SEO e tags do seu vídeo.</div>
     </a>
-
     <div class="service" onclick="toggleDescription(this)" data-aos="zoom-in">
       🎨 Logomarcas Profissionais
       <div class="service-description">Criação de logomarcas únicas, modernas e com identidade visual forte para sua marca.</div>
     </div>
     <div class="service" onclick="toggleDescription(this)" data-aos="zoom-in">
       🌐 Criação de Sites Responsivos
-      <div class="service-description">Sites bonitos, rápidos e que se adaptam a qualquer dispositivo.</div>
+      <div class="service-description">Sites bonitos, rápidos e que se adaptam a qualquer dispositivo, prontos para destacar sua presença online.</div>
     </div>
     <div class="service" onclick="toggleDescription(this)" data-aos="zoom-in">
       🎬 Edição Áudiovisual Premium
-      <div class="service-description">Edição profissional de vídeos para YouTube, redes sociais, comerciais e mais.</div>
+      <div class="service-description">Edição profissional de vídeos para YouTube, redes sociais, comerciais e projetos especiais.</div>
     </div>
     <div class="service" onclick="toggleDescription(this)" data-aos="zoom-in">
       📺 Criação de Canais YouTube
-      <div class="service-description">Do zero até o sucesso: identidade visual, roteiros, capas e estratégia.</div>
+      <div class="service-description">Auxiliamos desde a identidade do canal até roteiros, capas, vídeos e estratégias de crescimento.</div>
     </div>
     <div class="service" onclick="toggleDescription(this)" data-aos="zoom-in">
       🤖 Chatbots para WhatsApp e Telegram
-      <div class="service-description">Automatize atendimentos, vendas e suporte com IA e bots inteligentes.</div>
+      <div class="service-description">Automatize atendimentos, vendas e suporte com chatbots inteligentes e personalizados.</div>
     </div>
     <div class="service" onclick="toggleDescription(this)" data-aos="zoom-in">
       🎓 Cursos sobre Inteligência Artificial
-      <div class="service-description">Aprenda IA aplicada de forma prática com nossos cursos exclusivos.</div>
+      <div class="service-description">Aprenda IA aplicada de forma prática: chatbots, automações, criação de conteúdo e muito mais.</div>
     </div>
     <div class="service" onclick="toggleDescription(this)" data-aos="zoom-in">
       📘 E-books Personalizados
-      <div class="service-description">Produção de e-books com design profissional e conteúdo personalizado.</div>
+      <div class="service-description">Produção de e-books com design profissional, diagramação e conteúdos sob medida.</div>
     </div>
     <div class="service" onclick="toggleDescription(this)" data-aos="zoom-in">
       🔊 Áudiobooks Profissionais
-      <div class="service-description">Narrativa profissional com edição de voz, música e ambientação.</div>
+      <div class="service-description">Gravação de áudiobooks com voz profissional, trilhas e qualidade de estúdio.</div>
     </div>
   </div>
 </section>
-
 <section class="contact" id="contato">
   <h2 data-aos="fade-up">Fale Conosco</h2>
   <form id="whatsappForm">
@@ -212,13 +98,10 @@
     <button type="submit">Enviar Mensagem</button>
   </form>
 </section>
-
 <footer>
   © 2025 - Direitos Reservados - Plínio Studio
 </footer>
-
 <a href="https://wa.me/5587999786261" class="whatsapp-button" target="_blank">💬</a>
-
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
   AOS.init();
@@ -249,6 +132,5 @@
   }
   type();
 </script>
-
 </body>
 </html>
