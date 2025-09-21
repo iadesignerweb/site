@@ -24,7 +24,8 @@
     .services, .contact { padding: 40px 20px; max-width: 1000px; margin: auto; }
     .services h2, .contact h2 { text-align: center; margin-bottom: 30px; }
     .service-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
-    .service { background: white; border-radius: 10px; box-shadow: 0 0 8px rgba(0,0,0,0.05); padding: 20px; text-align: center; cursor: pointer; transition: all 0.3s; text-decoration: none; color: inherit; }
+    /* Changed the .service styling to ensure the whole area is clickable for <a> tags */
+    .service { background: white; border-radius: 10px; box-shadow: 0 0 8px rgba(0,0,0,0.05); padding: 20px; text-align: center; cursor: pointer; transition: all 0.3s; text-decoration: none; color: inherit; display: block; }
     .service:hover { background: #f0f0f0; }
     body.dark-mode .service { background: #1e1e1e; }
     .service-description { display: none; margin-top: 10px; font-size: 0.9rem; color: #555; }
@@ -59,14 +60,16 @@
       🎨 Logomarcas Profissionais
       <div class="service-description">Criação de logomarcas únicas, modernas e com identidade visual forte para sua marca.</div>
     </div>
-    <div class="service" onclick="toggleDescription(this)" data-aos="zoom-in">
+    <!-- MODIFIED: Changed div to a tag and added href for "Criação de Sites Responsivos" -->
+    <a href="https://iadesignerweb.github.io/free/" class="service" data-aos="zoom-in">
       🌐 Criação de Sites Responsivos
       <div class="service-description">Sites bonitos, rápidos e que se adaptam a qualquer dispositivo, prontos para destacar sua presença online.</div>
-    </div>
-    <div class="service" onclick="toggleDescription(this)" data-aos="zoom-in">
+    </a>
+    <!-- MODIFIED: Changed div to a tag, added href, and corrected typo in class name for "Edição Áudiovisual Premium" -->
+    <a href="https://youtube.com/@pliniofabricio_" class="service" data-aos="zoom-in">
       🎬 Edição Áudiovisual Premium
-      <div class="service-descrition">Edição profissional de vídeos para YouTube, redes sociais, comerciais e projetos especiais.</div>
-    </div>
+      <div class="service-description">Edição profissional de vídeos para YouTube, redes sociais, comerciais e projetos especiais.</div>
+    </a>
     <div class="service" onclick="toggleDescription(this)" data-aos="zoom-in">
       📺 Criação de Canais YouTube
       <div class="service-description">Auxiliamos desde a identidade do canal até roteiros, capas, vídeos e estratégias de crescimento.</div>
@@ -108,6 +111,7 @@
   function toggleDescription(element) {
     const desc = element.querySelector('.service-description');
     const isVisible = desc.style.display === 'block';
+    // Hide all other descriptions before showing the clicked one
     document.querySelectorAll('.service-description').forEach(d => d.style.display = 'none');
     desc.style.display = isVisible ? 'none' : 'block';
   }
